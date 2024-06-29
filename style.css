@@ -1,22 +1,26 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
 
-body{
+body {
     background-image: url(./images/background1.jpeg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center;
     color: antiquewhite;
 }
 
-.btn{
+.btn {
     margin: 40px 0;
 }
 
-nav{
+nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -24,56 +28,56 @@ nav{
     background-color: gray;
 }
 
-.left{
+.left {
     font-size: 2rem;
 }
 
-nav ul{
+nav ul {
     display: flex;
     justify-content: center;
     font-size: 1.5rem;
     align-items: center;
 }
 
-nav ul li{
+nav ul li {
     list-style: none;
     margin: 0 23px;
 }
 
-nav ul li a{
+nav ul li a {
     text-decoration: none;
     color: antiquewhite;
 }
 
-nav ul li a:hover{
-    color : aquamarine;
+nav ul li a:hover {
+    color: aquamarine;
     font-size: 1.6rem;
 }
 
-#element{
+#element {
     color: aquamarine;
 }
 
-.firstSection{
+.firstSection {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 80px 0;
 }
 
-.firstSection > div{
+.firstSection > div {
     width: 30%;
 }
-    
-.leftSection{
+
+.leftSection {
     font-size: 2.5rem;
 }
 
-.purple{
+.purple {
     color: aquamarine;
 }
 
-.leftSection .btn{
+.leftSection .btn {
     padding: 12px;
     background: #000000;
     color: antiquewhite;
@@ -83,187 +87,282 @@ nav ul li a:hover{
     cursor: pointer;
 }
 
-.rightSection{
+.rightSection {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.rightSection img{
+.rightSection img {
     width: 500px;
     border-radius: 500px;
 }
 
-main hr{
+main hr {
     margin: 40px 84px;
     border: 0;
     background: #6d6868;
     height: 1.2px;
 }
 
-.secondSection{
+.secondSection {
     max-width: 80vw;
     margin: auto;
     height: 55vh;
 }
 
-.secondSection span{
+.secondSection span {
     color: #5e5a95;
 }
 
-.secondSection h1{
+secondSection h1 {
     font-size: 1.65rem;
 }
 
-.secondSection .box{
-    height: 2px;
-    width: 83vw;
-    background: white;
-    margin: 56px 0;
-    display: flex;
+.secondSection .box {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    font-size: 1rem;
+    align-items: center;
+    text-align: center;
+    line-height: 1;
 }
 
-.secondSection .vertical{
-    height: 93px;
-    width: 1px;
-    background-color: white;
-    margin: 0 100px;
-}
-
-.image-top{
-    width: 30px;
+.image-top {
+    width: 120px;
+    height: 120px;
     position: relative;
-    top: -34px;
-    left: -11px;
 }
 
 .vertical-tittle{
-    top: 75px;
-    position: relative;
-    width: 1px;
+    line-height: 2;
 }
 
-.vertical-desc{
-    position: relative;
-    top: 85px;
-    color: #5e5a95;
-    width: 150px;
-    font-size: 9px;
+.thirdSection {
+    max-width: 80vw;
+    margin: auto;
+    height: 55vh;
 }
 
-footer{
+.thirdSection h1 {
+    font-size: 1.65rem;
+}
+
+.thirdSection .projects{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 80px 0;
+}
+
+.project-info h2 a{
+    text-decoration: none;
+}
+
+.project-info h2 a:hover {
+    font-size: 1.6rem;
+    color: aquamarine;
+}
+
+.netflix{
+    width: 100px;
+    position: relative;
+    margin-left: 10px;
+}
+
+.cartoon{
+    width: 100px;
+    position: relative;
+    margin-left: 18px;
+}
+
+footer {
     background-color: #292724;
     padding-top: 1rem;
-
+    height: 100px;
 }
 
-.footer{
+.footer {
     display: flex;
     justify-content: space-evenly;
+    text-align: center;
 }
 
-.footer ul{
+.footer ul {
     list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.footer > div{
+.footer > div {
     width: 223px;
 }
 
-footer .footer-rights{
+/* footer .footer-rights {
     text-align: center;
     color: gray;
     padding: 12px 0;
-}
+} */
 
-@media screen and (max-width: 768px){
-    .firstSection{
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: space-around;
-        min-height: 100vh;
+@media screen and (max-width: 768px) {
+    body {
+        background-size: cover;
     }
-
-    .firstSection > div{
-        width: 80%;
-        text-align: center;
+    .left{
+        font-size: 1.25rem;
     }
-
-    .rightSection img{
-        width: 300px;
+    nav ul{
+        font-size: 1rem;
     }
-
-    .secondSection{
-        height: 100%;
-    }
-
-    .secondSection .box{
-        width: 100%;
-    }
-
-    .vertical{
-        margin: 0 50px;
-    }
-
-    .vertical-desc{
-        width: 100px;
-    }
-
-    .footer{
+    .firstSection {
         flex-direction: column;
-        align-items: center;
-    }
-
-    .footer > div{
-        margin: 20px 0;
-    }
-
-    .btn{
         margin: 40px 0;
     }
+    .firstSection > div {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .rightSection {
+        width: 80%;
+    }
+    .rightSection img {
+        width: 50%;
+        border-radius: 50%;
+    }
+    main hr {
+        margin: 40px 0;
+    }
+    .secondSection {
+        height: auto;
+    }
+    .secondSection .box {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-around;
+        grid-gap: 20px;
+    }
+
+    .image-top {
+        width: 65px;
+        height: 65px;
+        position: relative;
+    }
     
-    
+    .thirdSection {
+        height: auto;
+    }
+    .thirdSection .projects {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 40px 0;
+        font-size: 10px;
+    }
+    .netflix{
+        width: 45px;
+        position: relative;
+        margin-left: 10px;
+    }
+
+    .cartoon{
+        width: 45px;
+        position: relative;
+        margin-left: 18px;
+    }
+
+    .footer {
+        flex-wrap: wrap;
+        height: 50px;
+    }
+    .footer > div {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
 
-@media screen and (max-width: 500px)
-{
- 
-    .footer ul{
-        flex-direction: column;
+@media screen and (max-width: 520px) {
+    body {
+        background-size: cover;
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
         align-items: center;
+        height: 40px;
+        background-color: gray;
     }
-
-    .footer > div{
-        width: 100%;
+    
+    .left{
+        text-align: center;
+        font-size: 1rem;
     }
-
-    .footer > div h2{
+    nav ul{
+        font-size: 0.75rem;
         text-align: center;
     }
-
-
-    .footer > div ul{
-        margin: 20px 0;
+    .firstSection {
+        flex-direction: column;
+        margin: 40px 0;
     }
-
-    .footer > div ul li{
-        margin: 10px 0;
+    .firstSection > div {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
     }
-
-    .footer > div ul li a{
-        font-size: 1.2rem;
+    .rightSection {
+        width: 80%;
     }
-
-    .footer > div ul li a:hover{
-        color: aquamarine;
-    }   
-
-    .footer > div ul li a:active{
-        color: aquamarine;
+    .rightSection img {
+        width: 50%;
+        border-radius: 50%;
     }
-
-
+    main hr {
+        margin: 40px 0;
+    }
+    .secondSection {
+        height: auto;
+    }
+    .secondSection .box {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-around;
+        grid-gap: 20px;
+    }
+    .image-top {
+        width: 65px;
+        height: 65px;
+        position: relative;
+    }
+    
+    .thirdSection {
+        height: auto;
+    }
+    .thirdSection .projects {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 40px 0;
+        font-size: 10px;
+    }
+    .netflix{
+        width: 45px;
+        position: relative;
+        margin-left: 10px;
+    }
+    .cartoon{
+        width: 45px;
+        position: relative;
+        margin-left: 18px;
+    }
+    .footer {
+        flex-wrap: wrap;
+        height: 30px;
+    }
+    .footer > div {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
