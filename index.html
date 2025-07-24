@@ -1,156 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;800&display=swap" rel="stylesheet">
-<body>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header>
-      <nav  id="Home">
+      <nav>
         <div class="left">Chinmay Mittal</div>
         <div class="right">
           <ul>
-            <li><a href="#Home">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="#About">Skills</a></li>
             <li><a href="#Projects">Projects</a></li>
-            <li><a href="mailto:chinmaymittal0000@gmail.com">Contact Me</a></li>
+            <li><a href="#Footer">Contact Me</a></li>
           </ul>
         </div>
       </nav>
     </header>
 
     <main>
-      <section class="firstSection">
+      <section class="firstSection" id="Home">
         <div class="leftSection">
           Hi, My name is <span class="purple">Chinmay</span>
           <div>and I am a passionate</div>
           <span id="element"></span>
           <div class="buttons">
-            <!-- <button class="btn">Download Resume</button> -->
-            <button class="btn"><a href="https://github.com/chinmay97531" style="color: antiquewhite; text-decoration: none;">Visit Github</a></button>
+            <!-- GitHub -->
+            <a
+              href="https://github.com/chinmay97531"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn icon-btn github"
+            >
+              <img
+                src="./logo/GitHub.svg"
+                alt="GitHub Logo"
+                class="icon-logo"
+              />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/chinmay-mittal-695825257/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn icon-btn linkedin"
+            >
+              <img
+                src="./logo/LinkedIn.svg"
+                alt="LinkedIn Logo"
+                class="icon-logo"
+              />
+            </a>
+
+            <a
+              href="https://drive.google.com/file/d/1TvahKurzSZyBYDsVLu5-q690dUOOI6Hc/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn icon-btn whatsapp"
+            >
+              <img
+                src="./logo/Resume.png"
+                alt="WhatsApp Logo"
+                class="icon-logo"
+              />
+            </a>
           </div>
         </div>
-        
-        <div class="rightSection">
-          <img src="./images/mine3.jpeg">
-        </div>
-       </section>
 
-       <hr>
-       <section class="secondSection" id="About">
+        <div class="rightSection">
+          <img src="./images/mine.jpeg" />
+        </div>
+      </section>
+
+      <section class="secondSection" id="About">
+        <hr />
         <span>What I have done so far</span>
         <h1>Work Experience</h1>
-        <br>
+        <br />
         <div class="box">
           <div class="vertical">
-            <img class="image-top" src="./logo/html.png" alt="HTML">
-            <div class="vertical-tittle">
-              HTML
-            </div>
+            <img class="image-top" src="./logo/html.png" alt="HTML" />
           </div>
           <div class="vertical">
-            <img class="image-top" src="./logo/css.png" alt="C">
-            <div class="vertical-tittle">
-              CSS
-            </div>
+            <img class="image-top" src="./logo/css.png" alt="C" />
           </div>
           <div class="vertical">
-            <img class="image-top" src="./logo/JS.png" alt="JAVASCRIPT">
-            <div class="vertical-tittle">
-              JAVASCRIPT
-            </div>
+            <img class="image-top" src="./logo/JS.png" alt="JAVASCRIPT" />
           </div>
           <div class="vertical">
-            <img class="image-top" src="./logo/nodsJs.png" alt="C">
-            <div class="vertical-tittle">
-              NODE_JS
-            </div>
+            <img class="image-top" src="./logo/nodsJs.png" alt="C" />
           </div>
           <div class="vertical">
-            <img class="image-top" src="./logo/Expressjs.png" alt="C">
-            <div class="vertical-tittle">
-              EXPRESS_JS
-            </div>
+            <img class="image-top" src="./logo/express.svg" alt="C" />
           </div>
           <div class="vertical">
-            <img class="image-top" src="./logo/React.png" alt="C">
-            <div class="vertical-tittle">
-              REACT
-            </div>
+            <img class="image-top" src="./logo/React.png" alt="C" />
           </div>
           <div class="vertical">
-            <img class="image-top" src="./logo/c.png" alt="C">
-            <div class="vertical-tittle">
-              C
-            </div>
+            <img class="image-top" src="./logo/c.png" alt="C" />
           </div>
           <div class="vertical">
-            <img class="image-top" src="./logo/c++.png" alt="C++">
-            <div class="vertical-tittle">
-              C++
-            </div>
+            <img class="image-top" src="./logo/c++.png" alt="C++" />
           </div>
           <div class="vertical">
-            <img class="image-top" src="./logo/java.png" alt="C">
-            <div class="vertical-tittle">
-              JAVA
-            </div>
+            <img class="image-top" src="./logo/java.png" alt="C" />
           </div>
-        </div>
-       </section>
-    </main>
-    
-    <br>
-
-    <main>
-    <hr>
-      <section class="thirdSection" id="Projects">
-      <h1>Projects</h1>
-        <div class="projects">
-          <div class="project1">
-            <div class="project-image">
-              <img class="netflix" src="./logo/netflix.png" alt="Netflix Clone">
-            </div>
-            <div class="project-info">
-              <h2><a href="https://chinmay97531.github.io/Netflix-Clone/" style="color: antiquewhite;">Netflix Clone</a></h2>
-            </div>
+          <div class="vertical">
+            <img class="image-top" src="./logo/MongoDB.png" alt="C" />
           </div>
-          <div class="project2">
-            <div class="project-image">
-              <img class="cartoon" src="./logo/Cartoonify.png" alt="Cartoonify Image">
-            </div>
-            <div class="project-info">
-              <h2><a href="https://github.com/chinmay97531/AnimatingImage" style="color: antiquewhite;">Cartoonizing</a></h2>
-            </div>
+          <div class="vertical">
+            <img class="image-top" src="./logo/MySQL.png" alt="C" />
+          </div>
+          <div class="vertical">
+            <img class="image-top" src="./logo/postgre.png" alt="C" />
+          </div>
+          <div class="vertical">
+            <img class="image-top" src="./logo/NextJS.png" alt="C" />
+          </div>
+          <div class="vertical">
+            <img class="image-top" src="./logo/Python.png" alt="C" />
           </div>
         </div>
       </section>
+      
+      <section class="thirdSection" id="Projects">
+        <hr />
+        <h1 class="section-title">Projects</h1>
+        <div class="projects">
+          <!-- Project 1 -->
+          <a href="https://github.com/chinmay97531/Brainly-Frontend" class="project-card" target="_blank">
+            <div class="project-image">
+              <img src="./logo/Brainly.jpg" alt="Brainly App" />
+            </div>
+            <div class="project-info">
+              <h2>Brainly App</h2>
+            </div>
+          </a>
+
+          <!-- Project 2 -->
+          <a href="https://github.com/chinmay97531/Backend-for-Course-Selling-App" class="project-card" target="_blank">
+            <div class="project-image">
+              <img src="./logo/CourseSellingApp.jpeg" alt="Course Selling Backend" />
+            </div>
+            <div class="project-info">
+              <h2>Course Selling Backend</h2>
+            </div>
+          </a>
+
+          <!-- Project 3 -->
+          <a href="https://github.com/chinmay97531/project-frontend-software-engineering" class="project-card" target="_blank">
+            <div class="project-image">
+              <img src="./logo/LMS.jpeg" alt="Learning Management System" />
+            </div>
+            <div class="project-info">
+              <h2>Learning Management System</h2>
+            </div>
+          </a>
+
+          <!-- Project 4 -->
+           <a href="https://github.com/chinmay97531/Food-Spoilage-Frontend" class="project-card" target="_blank">
+            <div class="project-image">
+              <img src="./logo/SpoiledFoodDetection.jpg" alt="Food Spoilage Detection App" />
+            </div>
+            <div class="project-info">
+              <h2>Food Spoilage Detection App</h2>
+            </div>
+          </a>
+
+          <!-- Project 5 -->
+           <a href="https://github.com/chinmay97531/Frontend-Task-Management-App" class="project-card" target="_blank">
+            <div class="project-image">
+              <img src="./logo/TaskManagementApp.png" alt="Task Management App" />
+            </div>
+            <div class="project-info">
+              <h2>Task Management App</h2>
+            </div>
+          </a>
+
+          <!-- Project 6 -->
+          <a href="https://github.com/chinmay97531/AnimatingImage" class="project-card" target="_blank">
+            <div class="project-image">
+              <img src="./logo/Cartoonify.png" alt="Cartoonizing Image" />
+            </div>
+            <div class="project-info">
+              <h2>Cartoonizing</h2>
+            </div>
+          </a>
+
+          <!-- Project 7 -->
+          <a href="https://chinmay97531.github.io/Netflix-Clone/" class="project-card" target="_blank">
+            <div class="project-image">
+              <img src="./logo/netflix.png" alt="Netflix Clone" />
+            </div>
+            <div class="project-info">
+              <h2>Netflix Clone</h2>
+            </div>
+          </a>
+
+          <!-- Project 8 -->
+           <a href="https://github.com/chinmay97531/Code-Catch-Game" class="project-card" target="_blank">
+            <div class="project-image">
+              <img src="./logo/CodeCatchGame.png" alt="Code Catch Game" />
+            </div>
+            <div class="project-info">
+              <h2>Code Catch Game</h2>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
     </main>
 
-
-    <footer>
-      <div class="footer">
-        <div class="footer-first">
+    <footer class="site-footer" id="Footer">
+      <div class="footer-container">
+        <div class="footer-brand">
           <h3>Chinmay's Portfolio</h3>
+          <p>Thanks for visiting! Connect with me below.</p>
         </div>
-        <div class="footer-second">
-          <ul>
-            <li><a href="#Home" style="color: antiquewhite; text-decoration: none">Home</a></li>
-            <li><a href="#About" style="color: antiquewhite; text-decoration: none">About</a></li>
-            <li><a href="mailto:chinmaymittal0000@gmail.com" style="text-decoration: none; color: antiquewhite;">Contact</a></li>
-          </ul>
+
+        <div class="footer-socials">
+          <h4>Connect</h4>
+          <div class="social-icons">
+            <a href="https://github.com/chinmay97531" target="_blank" rel="noopener noreferrer">
+              <img src="./logo/GitHub.svg" alt="GitHub" />
+            </a>
+            <a href="https://www.linkedin.com/in/chinmay-mittal-695825257/" target="_blank" rel="noopener noreferrer">
+              <img src="./logo/LinkedIn.svg" alt="LinkedIn" />
+            </a>
+            <a href="https://wa.me/919129053388" target="_blank" rel="noopener noreferrer">
+              <img src="./logo/whatsapp.png" alt="WhatsApp" />
+            </a>
+            <a href="mailto:chinmaymittal0000@gmail.com">
+              <img src="./logo/Gmail.svg" alt="Gmail" />
+            </a>
+          </div>
         </div>
       </div>
+</footer>
+
       <!-- <div class="footer-rights">
         Copyright &#169 www.chinmayportfolio.com | All Rights Reserved
       </div> -->
     </footer>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-  <script src="index.js"></script>
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>
