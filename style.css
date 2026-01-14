@@ -159,6 +159,11 @@ secondSection h1 {
   width: 120px;
   height: 120px;
   position: relative;
+  transition: transform 0.3s ease;
+}
+
+.image-top:hover {
+  transform: scale(1.1);
 }
 
 .vertical-tittle {
