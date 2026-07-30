@@ -101,9 +101,6 @@ export default function Hero() {
                 <SocialIconLink href={leetcodeUrl} label="LeetCode">
                   <SiLeetcode size={19} />
                 </SocialIconLink>
-                <SocialIconLink href={emailUrl} label="Email" external={false}>
-                  <Mail size={20} />
-                </SocialIconLink>
                 <SocialIconLink href={resumeUrl} label="Resume">
                   <FileText size={20} />
                 </SocialIconLink>

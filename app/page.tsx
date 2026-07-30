@@ -1,4 +1,4 @@
-import BackgroundCanvas from "@/components/BackgroundCanvas";
+import Background from "@/components/Background";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <BackgroundCanvas />
+      <Background />
       <Navbar />
       <main className="relative">
         <Hero />
