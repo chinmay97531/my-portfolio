@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useId } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, FileText } from "lucide-react";
@@ -7,9 +8,14 @@ import { SiLeetcode } from "react-icons/si";
 import {
   role,
   githubUrl,
+  githubCardUrl,
+  githubChartUrl,
   linkedinUrl,
+  linkedinCardUrl,
   resumeUrl,
+  resumeCardUrl,
   leetcodeUrl,
+  leetcodeCardUrl,
 } from "@/lib/data";
 
 const container = {
@@ -24,7 +30,23 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
+const chartImageUrls = [
+  githubCardUrl,
+  githubChartUrl,
+  leetcodeCardUrl,
+  linkedinCardUrl,
+  resumeCardUrl,
+];
+
 export default function Hero() {
+  // Preload hover charts so the first hover feels instant.
+  useEffect(() => {
+    chartImageUrls.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
+
   return (
     <section
       id="home"
@@ -88,18 +110,58 @@ export default function Hero() {
               </a>
 
               <div className="flex items-center gap-3">
-                <SocialIconLink href={githubUrl} label="GitHub">
+                <ChartHoverLink
+                  href={githubUrl}
+                  label="GitHub"
+                  images={[
+                    {
+                      src: githubCardUrl,
+                      alt: "GitHub streak stats for chinmay97531",
+                    },
+                    {
+                      src: githubChartUrl,
+                      alt: "GitHub contribution chart for chinmay97531",
+                    },
+                  ]}
+                >
                   <Github size={20} />
-                </SocialIconLink>
-                <SocialIconLink href={linkedinUrl} label="LinkedIn">
+                </ChartHoverLink>
+                <ChartHoverLink
+                  href={linkedinUrl}
+                  label="LinkedIn"
+                  images={[
+                    {
+                      src: linkedinCardUrl,
+                      alt: "LinkedIn profile preview for Chinmay Mittal",
+                    },
+                  ]}
+                >
                   <Linkedin size={20} />
-                </SocialIconLink>
-                <SocialIconLink href={leetcodeUrl} label="LeetCode">
+                </ChartHoverLink>
+                <ChartHoverLink
+                  href={leetcodeUrl}
+                  label="LeetCode"
+                  images={[
+                    {
+                      src: leetcodeCardUrl,
+                      alt: "LeetCode stats and heatmap for Chinmay9753",
+                    },
+                  ]}
+                >
                   <SiLeetcode size={19} />
-                </SocialIconLink>
-                <SocialIconLink href={resumeUrl} label="Resume">
+                </ChartHoverLink>
+                <ChartHoverLink
+                  href={resumeUrl}
+                  label="Resume"
+                  images={[
+                    {
+                      src: resumeCardUrl,
+                      alt: "Resume preview for Chinmay Mittal",
+                    },
+                  ]}
+                >
                   <FileText size={20} />
-                </SocialIconLink>
+                </ChartHoverLink>
               </div>
             </motion.div>
           </motion.div>
@@ -144,26 +206,57 @@ export default function Hero() {
   );
 }
 
-function SocialIconLink({
+function ChartHoverLink({
   href,
   label,
-  external = true,
+  images,
   children,
 }: {
   href: string;
   label: string;
-  external?: boolean;
+  images: { src: string; alt: string }[];
   children: React.ReactNode;
 }) {
+  const tooltipId = useId();
+
   return (
-    <a
-      href={href}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noopener noreferrer" : undefined}
-      aria-label={label}
-      className="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-all hover:-translate-y-1 hover:border-accent/50 hover:text-accent"
-    >
-      {children}
-    </a>
+    <div className="group/chart relative">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={label}
+        aria-describedby={tooltipId}
+        className="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-all hover:-translate-y-1 hover:border-accent/50 hover:text-accent focus-visible:-translate-y-1 focus-visible:border-accent/50 focus-visible:text-accent focus-visible:outline-none"
+      >
+        {children}
+      </a>
+
+      <div
+        id={tooltipId}
+        role="tooltip"
+        className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-3 w-[min(92vw,360px)] -translate-x-1/2 opacity-0 transition-all duration-200 ease-out group-hover/chart:pointer-events-auto group-hover/chart:opacity-100 group-focus-within/chart:pointer-events-auto group-focus-within/chart:opacity-100"
+      >
+        <div className="glass overflow-hidden rounded-2xl border border-white/10 p-2 shadow-2xl shadow-black/50 ring-1 ring-white/5">
+          <div className="flex flex-col gap-2">
+            {images.map((image) => (
+              // eslint-disable-next-line @next/next/no-img-element -- external SVG/PNG card services
+              <img
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
+                width={500}
+                height={200}
+                loading="eager"
+                decoding="async"
+                className="h-auto w-full rounded-xl bg-base-800"
+              />
+            ))}
+          </div>
+        </div>
+        {/* Anchor caret */}
+        <div className="mx-auto h-2.5 w-2.5 -translate-y-1/2 rotate-45 border-b border-r border-white/10 bg-[rgba(17,23,34,0.85)]" />
+      </div>
+    </div>
   );
 }
