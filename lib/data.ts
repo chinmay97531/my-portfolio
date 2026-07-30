@@ -17,7 +17,48 @@ export type SocialLink = {
   icon: string;
 };
 
-export const roles = ["Software Engineer", "App Developer", "Web Developer"];
+export type Experience = {
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  summary?: string;
+  stack: string[];
+  points: string[];
+};
+
+export const role = "Software Engineer";
+
+export const experiences: Experience[] = [
+  {
+    role: "Software Engineering Intern",
+    company: "Zscaler",
+    period: "Feb 2026 – Present",
+    location: "Mohali, Punjab",
+    summary:
+      "I'm part of the Product Business Operations team at Zscaler, building an enterprise-grade Quarterly Business Review (QBR) platform from the ground up to streamline the creation and management of executive business review presentations, using Next.js, FastAPI, PostgreSQL, Valkey, and AWS.",
+    stack: ["Next.js", "FastAPI", "PostgreSQL", "Snowflake", "GitLab", "Valkey"],
+    points: [
+      "Architected and developed an enterprise-grade QBR platform",
+      "Integrated business and operational data from Snowflake and Amazon RDS (PostgreSQL) into scalable dashboards.",
+      "Built a modular page framework supporting predefined templates and dynamic user-generated content.",
+    ],
+  },
+  {
+    role: "ELC Summer Intern",
+    company: "Thapar Institute of Engineering & Technology",
+    period: "Jun 2024 – Jul 2024",
+    location: "Patiala, India",
+    summary:
+      "Led the development of a Smart AI-powered IoT Food Spoilage Detection system integrating ML, IoT, and full-stack technologies.",
+    stack: ["Machine Learning", "IoT", "React Native", "REST APIs"],
+    points: [
+      "Led an 8-member team to develop an AI-powered IoT food spoilage detection system achieving 90% prediction accuracy.",
+      "Built a real-time data pipeline with anomaly detection and automated alerts using REST APIs.",
+      "Optimized ML inference by 32% and developed a low-latency React Native dashboard for real-time analytics.",
+    ],
+  },
+];
 
 export const skills: Skill[] = [
   { name: "HTML5", icon: "/logo/html.png" },

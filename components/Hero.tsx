@@ -2,16 +2,14 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Github, Linkedin, FileText, Mail } from "lucide-react";
+import { ArrowRight, Github, Linkedin, FileText } from "lucide-react";
 import { SiLeetcode } from "react-icons/si";
-import TypedText from "./TypedText";
 import {
-  roles,
+  role,
   githubUrl,
   linkedinUrl,
   resumeUrl,
   leetcodeUrl,
-  emailUrl,
 } from "@/lib/data";
 
 const container = {
@@ -63,9 +61,7 @@ export default function Hero() {
               className="mt-3 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
               I&apos;m a{" "}
-              <span className="text-gradient animate-gradient-x">
-                <TypedText words={roles} />
-              </span>
+              <span className="text-gradient animate-gradient-x">{role}</span>
             </motion.h1>
 
             <motion.p
