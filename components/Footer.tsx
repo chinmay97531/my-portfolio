@@ -2,14 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
-import {
-  githubUrl,
-  linkedinUrl,
-} from "@/lib/data";
+import { SiLeetcode } from "react-icons/si";
+import { githubUrl, linkedinUrl, leetcodeUrl } from "@/lib/data";
 
 const contactLinks = [
   { label: "GitHub", href: githubUrl, icon: Github },
   { label: "LinkedIn", href: linkedinUrl, icon: Linkedin },
+  { label: "LeetCode", href: leetcodeUrl, icon: SiLeetcode },
   { label: "Email", href: "mailto:chinmaymittal0000@gmail.com", icon: Mail },
 ];
 

@@ -104,29 +104,29 @@ export default function Preloader() {
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(45,212,191,0.12),transparent_55%)]" />
 
-          <div className="relative flex w-full max-w-md flex-col items-center">
+          <div className="relative flex w-full max-w-3xl flex-col items-center">
             {/* Header */}
-            <div className="mb-6 flex items-center gap-3">
-              <span className="relative h-9 w-9 overflow-hidden rounded-full bg-gradient-to-br from-accent/25 to-sky-400/20 ring-2 ring-accent/50">
-                <Image
-                  src="/images/mine.webp"
-                  alt="Chinmay Mittal"
-                  fill
-                  sizes="36px"
-                  className="scale-110 object-cover object-top"
-                  priority
-                />
+            <div className="mb-6 flex flex-col items-center gap-4 text-center">
+              <span className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5">
+                <span className="relative h-6 w-6 overflow-hidden rounded-full bg-gradient-to-br from-accent/25 to-sky-400/20 ring-1 ring-accent/50">
+                  <Image
+                    src="/images/mine.webp"
+                    alt="Chinmay Mittal"
+                    fill
+                    sizes="24px"
+                    className="scale-110 object-cover object-top"
+                    priority
+                  />
+                </span>
+                <span className="text-sm font-medium text-white/70">Chinmay Mittal</span>
               </span>
-              <div className="text-left">
-                <p className="font-display text-sm font-semibold leading-tight text-white/90">
-                  Chinmay Mittal
-                </p>
-                <p className="text-xs text-white/45">A quick look at the journey</p>
-              </div>
+              <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+                A quick look at my <span className="text-gradient">journey</span>
+              </h2>
             </div>
 
             {/* Milestone card */}
-            <div className="relative aspect-video w-full overflow-hidden rounded-2xl ring-1 ring-white/10">
+            <div className="relative aspect-video w-full overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-2xl shadow-black/50">
               <AnimatePresence>
                 <motion.div
                   key={step}
@@ -148,7 +148,7 @@ export default function Preloader() {
                 </motion.div>
               </AnimatePresence>
 
-              <div className="absolute inset-x-0 bottom-0 p-5 text-left">
+              <div className="absolute inset-x-0 bottom-0 p-6 text-left sm:p-8">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={step}
@@ -157,13 +157,15 @@ export default function Preloader() {
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
                   >
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent sm:text-sm">
                       {active.tag}
                     </span>
-                    <h3 className="mt-1 font-display text-xl font-bold text-white">
+                    <h3 className="mt-1 font-display text-2xl font-bold text-white sm:text-3xl">
                       {active.title}
                     </h3>
-                    <p className="text-sm text-white/65">{active.subtitle}</p>
+                    <p className="text-sm text-white/70 sm:text-base">
+                      {active.subtitle}
+                    </p>
                   </motion.div>
                 </AnimatePresence>
               </div>

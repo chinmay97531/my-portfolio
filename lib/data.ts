@@ -127,3 +127,5 @@ export const resumeUrl =
 
 export const githubUrl = "https://github.com/chinmay97531";
 export const linkedinUrl = "https://www.linkedin.com/in/chinmay-mittal-695825257/";
+export const leetcodeUrl = "https://leetcode.com/u/Chinmay9753";
+export const emailUrl = "mailto:chinmaymittal0000@gmail.com";
