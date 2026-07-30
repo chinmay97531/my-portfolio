@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { experiences } from "@/lib/data";
@@ -38,18 +39,25 @@ export default function Experience() {
                   i % 2 === 0 ? "sm:mr-auto" : "sm:ml-auto"
                 }`}
               >
-                <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-                  <h3 className="font-display text-lg font-semibold text-white">
-                    {exp.role}
-                  </h3>
-                  <span className="text-xs font-medium text-white/50">
+                <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
+                  <div className="min-w-0">
+                    <Image
+                      src={exp.logo}
+                      alt={exp.company}
+                      width={exp.logoWidth}
+                      height={exp.logoHeight}
+                      className="w-auto object-contain object-left"
+                      style={{ height: exp.logoHeight >= 48 ? 52 : 28 }}
+                    />
+                  </div>
+                  <span className="shrink-0 pt-1 text-xs font-medium text-white/50">
                     {exp.period}
                   </span>
                 </div>
 
-                <p className="mt-0.5 text-sm font-semibold text-accent">
-                  {exp.company}
-                </p>
+                <h3 className="mt-3 font-display text-lg font-semibold text-white">
+                  {exp.role}
+                </h3>
                 <p className="text-xs text-white/45">{exp.location}</p>
 
                 {exp.summary && (

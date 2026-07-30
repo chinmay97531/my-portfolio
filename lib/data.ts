@@ -20,6 +20,9 @@ export type SocialLink = {
 export type Experience = {
   role: string;
   company: string;
+  logo: string;
+  logoWidth: number;
+  logoHeight: number;
   period: string;
   location: string;
   summary?: string;
@@ -33,6 +36,9 @@ export const experiences: Experience[] = [
   {
     role: "Software Engineering Intern",
     company: "Zscaler",
+    logo: "/logo/zscaler.webp",
+    logoWidth: 124,
+    logoHeight: 32,
     period: "Feb 2026 – Present",
     location: "Mohali, Punjab",
     summary:
@@ -47,8 +53,11 @@ export const experiences: Experience[] = [
   {
     role: "ELC Summer Intern",
     company: "Thapar Institute of Engineering & Technology",
+    logo: "/logo/thapar.webp",
+    logoWidth: 111,
+    logoHeight: 56,
     period: "Jun 2024 – Jul 2024",
-    location: "Patiala, India",
+    location: "Patiala, Punjab",
     summary:
       "Led the development of a Smart AI-powered IoT Food Spoilage Detection system integrating ML, IoT, and full-stack technologies.",
     stack: ["Machine Learning", "IoT", "React Native", "REST APIs"],

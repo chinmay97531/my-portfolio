@@ -34,9 +34,8 @@ export default function Projects() {
                 alt={project.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-opacity duration-300 group-hover:opacity-90"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-base-950/80 via-transparent to-transparent" />
             </div>
 
             <div className="flex flex-1 flex-col p-5">
