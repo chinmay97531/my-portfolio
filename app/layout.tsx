@@ -64,6 +64,28 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+      <head>
+        {/* Warm the journey slideshow so production intro does not wait on cold image fetches. */}
+        <link
+          rel="preload"
+          as="image"
+          href="/journey/thapar-campus.webp"
+          type="image/webp"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/journey/elc-intern.webp"
+          type="image/webp"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/journey/zscaler-intern.webp"
+          type="image/webp"
+        />
+        <link rel="preload" as="image" href="/images/mine.webp" type="image/webp" />
+      </head>
       <body className="font-sans antialiased">
         <Preloader />
         {children}
