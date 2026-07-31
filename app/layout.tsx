@@ -49,7 +49,8 @@ export const metadata: Metadata = {
     images: ["/images/mine.png"],
   },
   icons: {
-    icon: "/logo/GitHub.svg",
+    icon: "/logo/favicon.svg",
+    apple: "/logo/favicon.svg",
   },
 };
 
