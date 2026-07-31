@@ -8,6 +8,8 @@ export type Project = {
   description: string;
   image: string;
   href: string;
+  /** Live demo URL shown as a moving preview on hover (when embeddable). */
+  liveUrl?: string;
   tags: string[];
 };
 
@@ -94,6 +96,7 @@ export const projects: Project[] = [
       "A retrieval-augmented generation chatbot that answers questions from your own knowledge base.",
     image: "/projects/ragbot.webp",
     href: "https://ragbot-actual-ai.app.genez.io/",
+    liveUrl: "https://ragbot-actual-ai.app.genez.io/",
     tags: ["AI", "RAG", "Full-Stack"],
   },
   {
@@ -102,6 +105,7 @@ export const projects: Project[] = [
       "A clean, intuitive task management app to plan and track your day.",
     image: "/projects/taskflow.webp",
     href: "https://frontend-task-management-app-seven.vercel.app/",
+    liveUrl: "https://frontend-task-management-app-seven.vercel.app/",
     tags: ["React", "Productivity"],
   },
   {
@@ -110,6 +114,7 @@ export const projects: Project[] = [
       "A second-brain app to capture, organize, and revisit your links, notes, and ideas.",
     image: "/projects/brainly.webp",
     href: "https://brainly-frontend-gamma.vercel.app/",
+    liveUrl: "https://brainly-frontend-gamma.vercel.app/",
     tags: ["React", "TypeScript"],
   },
   {
@@ -150,6 +155,7 @@ export const projects: Project[] = [
       "A pixel-faithful Netflix landing page clone built with vanilla web tech.",
     image: "/projects/netflix.webp",
     href: "https://chinmay97531.github.io/Netflix-Clone/",
+    liveUrl: "https://chinmay97531.github.io/Netflix-Clone/",
     tags: ["HTML", "CSS", "JS"],
   },
   {
@@ -158,6 +164,7 @@ export const projects: Project[] = [
       "A fun browser game where you catch falling code snippets to score points.",
     image: "/projects/code-catch.webp",
     href: "https://code-catch-game.vercel.app/",
+    liveUrl: "https://code-catch-game.vercel.app/",
     tags: ["Game", "JavaScript"],
   },
 ];

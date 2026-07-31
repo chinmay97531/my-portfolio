@@ -42,6 +42,11 @@ const config: Config = {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(0)" },
         },
+        "live-pan": {
+          "0%": { transform: "scale(1.08) translate(0%, 0%)" },
+          "50%": { transform: "scale(1.16) translate(-2.5%, -1.5%)" },
+          "100%": { transform: "scale(1.08) translate(0%, 0%)" },
+        },
       },
       animation: {
         "gradient-x": "gradient-x 6s ease infinite",
@@ -49,6 +54,7 @@ const config: Config = {
         marquee: "marquee var(--marquee-duration, 40s) linear infinite",
         "marquee-reverse":
           "marquee-reverse var(--marquee-duration, 40s) linear infinite",
+        "live-pan": "live-pan 8s ease-in-out infinite",
       },
     },
   },
