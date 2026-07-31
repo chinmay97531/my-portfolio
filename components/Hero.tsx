@@ -3,7 +3,7 @@
 import { useEffect, useId } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Github, Linkedin, FileUser } from "lucide-react";
+import { ArrowRight, Github, Linkedin, FileUser, GraduationCap } from "lucide-react";
 import { SiLeetcode } from "react-icons/si";
 import {
   role,
@@ -81,25 +81,32 @@ export default function Hero() {
 
             <motion.p
               variants={item}
+              className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-base-500 sm:text-base"
+            >
+              <GraduationCap size={16} className="text-accent" aria-hidden />
+              B.E. Computer Engineering · Thapar Institute
+            </motion.p>
+
+            <motion.p
+              variants={item}
               className="mt-5 max-w-xl text-base leading-relaxed text-base-500 sm:text-lg"
             >
-              I design and build fast, accessible web and app experiences —
-              from polished front-ends to reliable back-ends.
+              I build scalable digital products that turn complex problems into simple, elegant, and impactful user experiences.
             </motion.p>
 
             <motion.div
               variants={item}
               className="mt-8 flex flex-wrap items-center gap-3"
             >
-              <a href="#about" className="btn-primary group">
-                About me
+              <a href="#projects" className="btn-primary group">
+                View my work
                 <ArrowRight
                   size={16}
                   className="transition-transform group-hover:translate-x-0.5"
                 />
               </a>
-              <a href="#projects" className="btn-secondary">
-                View my work
+              <a href="#contact" className="btn-secondary">
+                Contact me
               </a>
             </motion.div>
 

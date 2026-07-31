@@ -1,15 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Mail, Phone, ArrowUp } from "lucide-react";
 import { SiLeetcode } from "react-icons/si";
-import { githubUrl, linkedinUrl, leetcodeUrl } from "@/lib/data";
+import {
+  emailAddress,
+  emailUrl,
+  githubUrl,
+  linkedinUrl,
+  leetcodeUrl,
+  phoneDisplay,
+  whatsappUrl,
+} from "@/lib/data";
 
 const contactLinks = [
   { label: "GitHub", href: githubUrl, icon: Github },
   { label: "LinkedIn", href: linkedinUrl, icon: Linkedin },
   { label: "LeetCode", href: leetcodeUrl, icon: SiLeetcode },
-  { label: "Email", href: "mailto:chinmaymittal0000@gmail.com", icon: Mail },
+  { label: "Email", href: emailUrl, icon: Mail },
 ];
 
 export default function Footer() {
@@ -36,11 +44,22 @@ export default function Footer() {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="mailto:chinmaymittal0000@gmail.com"
+              href={emailUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-soft"
             >
               <Mail size={16} />
-              Say hello
+              {emailAddress}
+            </a>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-accent-soft/50 hover:bg-white/10"
+            >
+              <Phone size={16} />
+              {phoneDisplay}
             </a>
           </div>
 

@@ -176,7 +176,7 @@ export const socials: SocialLink[] = [
     href: "https://www.linkedin.com/in/chinmay-mittal-695825257/",
     icon: "/logo/LinkedIn.svg",
   },
-  { label: "Email", href: "mailto:chinmaymittal0000@gmail.com", icon: "/logo/Gmail.svg" },
+  { label: "Email", href: "https://mail.google.com/mail/?view=cm&fs=1&to=chinmaymittal0000@gmail.com", icon: "/logo/Gmail.svg" },
 ];
 
 export const resumeUrl =
@@ -193,4 +193,8 @@ export const linkedinCardUrl = "/previews/linkedin.webp";
 export const leetcodeUrl = "https://leetcode.com/u/Chinmay9753";
 export const leetcodeCardUrl =
   "https://leetcard.jacoblin.cool/Chinmay9753?theme=light&font=DM%20Sans&ext=heatmap";
-export const emailUrl = "mailto:chinmaymittal0000@gmail.com";
+export const emailAddress = "chinmaymittal0000@gmail.com";
+/** Opens Gmail compose directly (avoids OS “Open Mail?” prompts). */
+export const emailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}`;
+export const phoneDisplay = "+91 91290 53388";
+export const whatsappUrl = "https://wa.me/919129053388";
