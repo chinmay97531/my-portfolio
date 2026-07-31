@@ -14,65 +14,59 @@ const contactLinks = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative scroll-mt-24 py-24">
+    <footer id="contact" className="relative scroll-mt-24 py-20 sm:py-24">
       <div className="section-shell">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5 }}
-          className="glass relative overflow-hidden rounded-3xl px-8 py-14 text-center sm:px-12"
+          transition={{ duration: 0.45 }}
+          className="rounded-2xl border border-base-800 bg-base-900 px-8 py-14 text-center text-white sm:px-12"
         >
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(45,212,191,0.15),transparent_60%)]" />
-          <div className="relative">
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              Get in touch
-            </span>
-            <h2 className="mx-auto mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Let&apos;s build something great together
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/60">
-              Have a project in mind or just want to say hi? My inbox is always
-              open — I&apos;ll get back to you as soon as I can.
-            </p>
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-soft">
+            Contact
+          </span>
+          <h2 className="mx-auto mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight sm:text-4xl">
+            Let&apos;s work together
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/60">
+            Have a role, project, or idea in mind? I&apos;d love to hear from
+            you — I usually reply within a day.
+          </p>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="mailto:chinmaymittal0000@gmail.com"
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-soft"
+            >
+              <Mail size={16} />
+              Say hello
+            </a>
+          </div>
+
+          <div className="mt-9 flex items-center justify-center gap-2.5">
+            {contactLinks.map(({ label, href, icon: Icon }) => (
               <a
-                href="mailto:chinmaymittal0000@gmail.com"
-                className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-semibold text-base-950 transition-transform hover:scale-105"
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 bg-white/5 text-white/70 transition-all hover:border-accent-soft/50 hover:text-white"
               >
-                <Mail size={18} />
-                Say hello
+                <Icon size={18} />
               </a>
-            </div>
-
-            <div className="mt-10 flex items-center justify-center gap-4">
-              {contactLinks.map(({ label, href, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="grid h-12 w-12 place-items-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-all hover:-translate-y-1 hover:border-accent/50 hover:text-accent"
-                >
-                  <Icon size={20} />
-                </a>
-              ))}
-            </div>
+            ))}
           </div>
         </motion.div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-sm text-white/40 sm:flex-row">
-          <p>
-            © {new Date().getFullYear()} Chinmay Mittal. All rights reserved.
-          </p>
+        <div className="mt-10 flex flex-col items-center justify-end gap-3 border-t border-base-200 pt-8 text-sm text-base-500 sm:flex-row">
           <a
             href="#home"
-            className="inline-flex items-center gap-2 transition-colors hover:text-accent"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-accent"
           >
             Back to top
-            <ArrowUp size={16} />
+            <ArrowUp size={14} />
           </a>
         </div>
       </div>

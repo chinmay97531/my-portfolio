@@ -36,8 +36,8 @@ const journey: Milestone[] = [
   },
 ];
 
-const STEP_MS = 1300;
-const MIN_HOLD_MS = 1100;
+const STEP_MS = 1400;
+const MIN_HOLD_MS = 1200;
 const CROSSFADE_S = 0.55;
 
 function kenBurns(pan: Milestone["pan"], reduced: boolean) {
@@ -47,18 +47,18 @@ function kenBurns(pan: Milestone["pan"], reduced: boolean) {
   switch (pan) {
     case "in":
       return {
-        initial: { scale: 1.06, x: 0, y: 0 },
-        animate: { scale: 1.14, x: 0, y: -6 },
+        initial: { scale: 1.05, x: 0, y: 0 },
+        animate: { scale: 1.12, x: 0, y: -8 },
       };
     case "left":
       return {
-        initial: { scale: 1.1, x: 14, y: 0 },
-        animate: { scale: 1.1, x: -14, y: 0 },
+        initial: { scale: 1.08, x: 16, y: 0 },
+        animate: { scale: 1.08, x: -16, y: 0 },
       };
     case "right":
       return {
-        initial: { scale: 1.1, x: -14, y: 0 },
-        animate: { scale: 1.1, x: 14, y: 0 },
+        initial: { scale: 1.08, x: -16, y: 0 },
+        animate: { scale: 1.08, x: 16, y: 0 },
       };
   }
 }
@@ -121,7 +121,7 @@ export default function Preloader() {
     };
 
     stepTimer = setTimeout(advance, Math.max(STEP_MS, MIN_HOLD_MS));
-    const cap = window.setTimeout(finish, 6000);
+    const cap = window.setTimeout(finish, 6500);
 
     return () => {
       clearTimeout(stepTimer);
@@ -146,40 +146,45 @@ export default function Preloader() {
           key="preloader"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-base-950 px-6"
+          transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center px-4 sm:px-8"
         >
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(45,212,191,0.14),transparent_55%)]" />
+          {/* Match main site theme so the handoff feels continuous */}
+          <div className="bg-wash absolute inset-0" />
+          <div className="bg-noise absolute inset-0 opacity-[0.025] mix-blend-multiply" />
 
-          <div className="relative flex w-full max-w-3xl flex-col items-center">
-            <div className="mb-6 flex w-full items-center justify-center gap-4">
-              <span className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5">
-                <span className="relative h-6 w-6 overflow-hidden rounded-full bg-gradient-to-br from-accent/25 to-sky-400/20 ring-1 ring-accent/50">
+          <div className="relative flex w-full max-w-6xl flex-col items-center">
+            <div className="mb-5 flex w-full items-center justify-center sm:mb-7">
+              <span className="inline-flex items-center gap-3 rounded-full border border-base-200 bg-white px-4 py-2 shadow-sm">
+                <span className="relative h-7 w-7 overflow-hidden rounded-full ring-1 ring-base-200">
                   <Image
                     src="/images/mine.webp"
                     alt="Chinmay Mittal"
                     fill
-                    sizes="24px"
+                    sizes="28px"
                     className="scale-110 object-cover object-top"
                     priority
                   />
                 </span>
-                <span className="text-sm font-medium text-white/70">
+                <span className="text-sm font-medium text-base-700">
                   Chinmay Mittal
                 </span>
               </span>
             </div>
 
-            <div className="mb-5 text-center">
-              <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+            <div className="mb-6 text-center sm:mb-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
+                Intro
+              </p>
+              <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-base-900 sm:text-5xl lg:text-6xl">
                 A quick look at my{" "}
-                <span className="text-gradient">journey</span>
+                <span className="text-accent">journey</span>
               </h2>
             </div>
 
-            <div className="relative aspect-video w-full overflow-hidden rounded-3xl shadow-2xl shadow-black/60 ring-1 ring-white/10">
+            <div className="relative h-[min(58vh,560px)] w-full overflow-hidden rounded-2xl border border-base-200 bg-base-100 shadow-lift sm:h-[min(64vh,680px)] sm:rounded-3xl lg:h-[min(68vh,740px)]">
               {!ready && (
-                <div className="absolute inset-0 animate-pulse bg-base-800" />
+                <div className="absolute inset-0 animate-pulse bg-base-100" />
               )}
 
               <AnimatePresence initial={false} mode="sync">
@@ -202,29 +207,27 @@ export default function Preloader() {
                         duration: (STEP_MS + 400) / 1000,
                         ease: "linear",
                       }}
-                      className="absolute inset-[-6%]"
+                      className="absolute inset-[-5%]"
                     >
                       <Image
                         src={active.img}
                         alt={active.title}
                         fill
-                        sizes="(max-width: 768px) 92vw, 720px"
+                        sizes="(max-width: 768px) 96vw, 1152px"
                         className="object-cover"
                         priority
                         unoptimized
                       />
                     </motion.div>
 
-                    {/* Cinematic grade overlays */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-base-950 via-base-950/45 to-black/20" />
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.45)_100%)]" />
-                    <div className="bg-noise pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-overlay" />
+                    {/* Soft bottom shade only — keeps captions readable without a dark theme */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-base-900/75 via-base-900/20 to-transparent" />
                   </motion.div>
                 )}
               </AnimatePresence>
 
               {ready && (
-                <div className="absolute inset-x-0 bottom-0 z-10 p-6 text-left sm:p-8">
+                <div className="absolute inset-x-0 bottom-0 z-10 p-6 text-left sm:p-10 lg:p-12">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={step}
@@ -233,13 +236,13 @@ export default function Preloader() {
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                     >
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-accent sm:text-xs">
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-accent-soft sm:text-xs">
                         {active.tag}
                       </span>
-                      <h3 className="mt-1.5 font-display text-2xl font-bold leading-tight text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.65)] sm:text-4xl">
+                      <h3 className="mt-2 font-display text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
                         {active.title}
                       </h3>
-                      <p className="mt-1.5 max-w-lg text-sm text-white/75 sm:text-base">
+                      <p className="mt-2 max-w-2xl text-sm text-white/80 sm:text-lg">
                         {active.subtitle}
                       </p>
                     </motion.div>
@@ -248,14 +251,14 @@ export default function Preloader() {
               )}
             </div>
 
-            <div className="mt-5 flex w-full gap-2">
+            <div className="mt-6 flex w-full max-w-md gap-2.5 sm:mt-8">
               {journey.map((_, idx) => (
                 <div
                   key={idx}
-                  className="h-1 flex-1 overflow-hidden rounded-full bg-white/12"
+                  className="h-1 flex-1 overflow-hidden rounded-full bg-base-200"
                 >
                   <motion.div
-                    className="h-full origin-left rounded-full bg-gradient-to-r from-accent-soft to-accent"
+                    className="h-full origin-left rounded-full bg-accent"
                     initial={false}
                     animate={{
                       scaleX: !ready

@@ -10,30 +10,31 @@ const config: Config = {
     extend: {
       colors: {
         base: {
-          950: "#05070a",
-          900: "#0a0e14",
-          800: "#111722",
-          700: "#1a2130",
+          50: "#F7F8FA",
+          100: "#EEF0F4",
+          200: "#E2E5EC",
+          300: "#C5CAD6",
+          500: "#6B7280",
+          700: "#374151",
+          800: "#1F2937",
+          900: "#0F172A",
+          950: "#020617",
         },
         accent: {
-          DEFAULT: "#2dd4bf",
-          soft: "#5eead4",
-          deep: "#0d9488",
+          DEFAULT: "#1D4ED8",
+          soft: "#3B82F6",
+          deep: "#1E3A8A",
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-sora)", "system-ui", "sans-serif"],
+        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-syne)", "system-ui", "sans-serif"],
+      },
+      boxShadow: {
+        soft: "0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06)",
+        lift: "0 12px 40px rgba(15, 23, 42, 0.1)",
       },
       keyframes: {
-        "gradient-x": {
-          "0%, 100%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
-        },
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
@@ -43,14 +44,12 @@ const config: Config = {
           "100%": { transform: "translateX(0)" },
         },
         "live-pan": {
-          "0%": { transform: "scale(1.08) translate(0%, 0%)" },
-          "50%": { transform: "scale(1.16) translate(-2.5%, -1.5%)" },
-          "100%": { transform: "scale(1.08) translate(0%, 0%)" },
+          "0%": { transform: "scale(1.06) translate(0%, 0%)" },
+          "50%": { transform: "scale(1.12) translate(-1.5%, -1%)" },
+          "100%": { transform: "scale(1.06) translate(0%, 0%)" },
         },
       },
       animation: {
-        "gradient-x": "gradient-x 6s ease infinite",
-        float: "float 6s ease-in-out infinite",
         marquee: "marquee var(--marquee-duration, 40s) linear infinite",
         "marquee-reverse":
           "marquee-reverse var(--marquee-duration, 40s) linear infinite",

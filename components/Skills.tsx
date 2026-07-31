@@ -10,23 +10,22 @@ export default function Skills() {
   const rowC = marqueeSkills.slice(third * 2);
 
   return (
-    <section id="skills" className="scroll-mt-24 py-24">
+    <section id="skills" className="scroll-mt-24 bg-white py-20 sm:py-24">
       <div className="section-shell">
         <SectionHeading
-          eyebrow="What I work with"
-          title="Skills & Technologies"
+          eyebrow="Skills"
+          title="Tools I work with"
+          subtitle="Languages, frameworks, and platforms I use to ship reliable software."
         />
       </div>
 
-      {/* Continuously moving marquee (full-bleed) */}
-      <div className="relative mt-16 flex flex-col gap-6 overflow-hidden py-2">
-        <MarqueeRow items={rowA} duration="46s" />
-        <MarqueeRow items={rowB} reverse duration="56s" />
-        <MarqueeRow items={rowC} duration="50s" />
+      <div className="relative mt-12 flex flex-col gap-4 overflow-hidden py-1">
+        <MarqueeRow items={rowA} duration="48s" />
+        <MarqueeRow items={rowB} reverse duration="58s" />
+        <MarqueeRow items={rowC} duration="52s" />
 
-        {/* Edge fades so chips melt into the background */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-base-950 to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-base-950 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent sm:w-28" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent sm:w-28" />
       </div>
     </section>
   );
@@ -59,15 +58,35 @@ function MarqueeRow({
 }
 
 function SkillChip({ skill }: { skill: Skill }) {
-  const Icon = skill.icon;
   return (
-    <div className="glass mr-5 flex shrink-0 items-center gap-4 rounded-2xl px-8 py-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
-      <Icon className="h-9 w-9" style={{ color: skill.color }} aria-hidden />
-      <span className="whitespace-nowrap text-xl font-semibold text-white/85">
+    <div className="mr-3 flex shrink-0 items-center gap-3 rounded-xl border border-base-200 bg-base-50/80 px-5 py-3.5 transition-all duration-300 hover:border-accent/30 hover:bg-white hover:shadow-soft">
+      <SkillIcon skill={skill} />
+      <span className="whitespace-nowrap text-base font-semibold text-base-900">
         {skill.name}
       </span>
     </div>
   );
+}
+
+function SkillIcon({ skill }: { skill: Skill }) {
+  if (typeof skill.icon === "string") {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element -- TSG animated SVGs need <img> for CSS keyframes
+      <img
+        src={skill.icon}
+        alt=""
+        width={36}
+        height={36}
+        className="h-9 w-9 object-contain"
+        loading="lazy"
+        decoding="async"
+        aria-hidden
+      />
+    );
+  }
+
+  const Icon = skill.icon;
+  return <Icon className="h-7 w-7" style={{ color: skill.color }} aria-hidden />;
 }
 
 export function SectionHeading({
@@ -81,20 +100,22 @@ export function SectionHeading({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.45 }}
       className="mx-auto max-w-2xl text-center"
     >
-      <span className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
         {eyebrow}
       </span>
-      <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+      <h2 className="mt-2.5 font-display text-3xl font-bold tracking-tight text-base-900 sm:text-4xl">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-base leading-relaxed text-white/60">{subtitle}</p>
+        <p className="mx-auto mt-3 max-w-xl text-base leading-relaxed text-base-500">
+          {subtitle}
+        </p>
       )}
     </motion.div>
   );

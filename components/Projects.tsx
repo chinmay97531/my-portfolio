@@ -12,14 +12,14 @@ const PREVIEW_HEIGHT = 800;
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-shell scroll-mt-24 py-24">
+    <section id="projects" className="section-shell scroll-mt-24 py-20 sm:py-24">
       <SectionHeading
-        eyebrow="Selected work"
-        title="Projects"
-        subtitle="A collection of things I've designed and built — from AI tools to full-stack apps and games."
+        eyebrow="Work"
+        title="Selected projects"
+        subtitle="Products and experiments I've designed and shipped — from AI tools to full-stack apps."
       />
 
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, i) => (
           <ProjectCard key={project.title} project={project} index={i} />
         ))}
@@ -96,11 +96,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       onMouseLeave={onLeave}
       onFocus={onEnter}
       onBlur={onLeave}
-      className="group glass relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10"
+      className="group surface relative flex flex-col overflow-hidden rounded-2xl shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-lift"
     >
       <div
         ref={mediaRef}
-        className="relative aspect-video overflow-hidden bg-base-800"
+        className="relative aspect-video overflow-hidden bg-base-100"
       >
         {/* Cover — slow “live photo” motion while hovered */}
         <div
@@ -137,24 +137,24 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 setLiveReady(true);
                 if (failTimer.current) clearTimeout(failTimer.current);
               }}
-              className="pointer-events-none absolute left-0 top-0 origin-top-left border-0 bg-base-800"
+              className="pointer-events-none absolute left-0 top-0 origin-top-left border-0 bg-base-100"
               style={{
                 width: PREVIEW_WIDTH,
                 height: PREVIEW_HEIGHT,
                 transform: `scale(${scale})`,
               }}
             />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-base-950/50 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-base-900/40 to-transparent" />
           </div>
         )}
 
         {hasLive && !liveFailed && (
           <span
-            className={`absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/55 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white/85 backdrop-blur-sm transition-opacity duration-300 ${
+            className={`absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-md border border-white/20 bg-base-900/70 px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm transition-opacity duration-300 ${
               hovered ? "opacity-100" : "opacity-0"
             }`}
           >
-            <Radio size={11} className="text-accent" />
+            <Radio size={10} className="text-accent-soft" />
             Live
           </span>
         )}
@@ -162,23 +162,23 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-display text-lg font-semibold text-white">
+          <h3 className="font-display text-lg font-semibold text-base-900">
             {project.title}
           </h3>
-          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/10 bg-white/5 text-white/60 transition-all group-hover:border-accent/50 group-hover:bg-accent group-hover:text-base-950">
-            <ArrowUpRight size={16} />
+          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-base-200 bg-base-50 text-base-700 transition-all group-hover:border-accent group-hover:bg-accent group-hover:text-white">
+            <ArrowUpRight size={15} />
           </span>
         </div>
 
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-base-500">
           {project.description}
         </p>
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-4 flex flex-wrap gap-1.5">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/60"
+              className="rounded-md bg-base-50 px-2 py-0.5 text-[11px] font-medium text-base-700 ring-1 ring-base-200"
             >
               {tag}
             </span>

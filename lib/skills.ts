@@ -1,10 +1,5 @@
 import type { ComponentType, SVGProps } from "react";
 import {
-  SiPython,
-  SiTypescript,
-  SiJavascript,
-  SiCplusplus,
-  SiReact,
   SiNextdotjs,
   SiTailwindcss,
   SiNodedotjs,
@@ -16,21 +11,19 @@ import {
   SiSnowflake,
   SiGit,
   SiGitlab,
-  SiDocker,
   SiLinux,
   SiPostman,
   SiVercel,
 } from "react-icons/si";
-import { FaJava } from "react-icons/fa6";
-import { DatabaseZap, ShieldCheck, Webhook, Boxes } from "lucide-react";
+import { DatabaseZap, ShieldCheck, Boxes } from "lucide-react";
 
-// A common type both react-icons and lucide-react icons satisfy.
 export type IconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
 export type Skill = {
   name: string;
-  icon: IconComponent;
-  color: string;
+  /** Animated TSG SVG path, or a react-icons / lucide component. */
+  icon: string | IconComponent;
+  color?: string;
 };
 
 export type SkillCategory = {
@@ -38,22 +31,25 @@ export type SkillCategory = {
   skills: Skill[];
 };
 
+/** Animated SVGs from https://techstack-generator.vercel.app/ */
+const tsg = (slug: string) => `/skills/${slug}-icon.svg`;
+
 export const skillCategories: SkillCategory[] = [
   {
     label: "Languages",
     skills: [
-      { name: "Python", icon: SiPython, color: "#3776AB" },
-      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-      { name: "C++", icon: SiCplusplus, color: "#00599C" },
-      { name: "Java", icon: FaJava, color: "#E76F00" },
+      { name: "Python", icon: tsg("python") },
+      { name: "TypeScript", icon: tsg("ts") },
+      { name: "JavaScript", icon: tsg("js") },
+      { name: "C++", icon: tsg("cpp") },
+      { name: "Java", icon: tsg("java") },
     ],
   },
   {
     label: "Frontend",
     skills: [
-      { name: "React", icon: SiReact, color: "#61DAFB" },
-      { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
+      { name: "React", icon: tsg("react") },
+      { name: "Next.js", icon: SiNextdotjs, color: "#14161C" },
       { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
     ],
   },
@@ -61,10 +57,10 @@ export const skillCategories: SkillCategory[] = [
     label: "Backend",
     skills: [
       { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
-      { name: "Express.js", icon: SiExpress, color: "#FFFFFF" },
+      { name: "Express.js", icon: SiExpress, color: "#14161C" },
       { name: "FastAPI", icon: SiFastapi, color: "#009688" },
-      { name: "REST APIs", icon: Webhook, color: "#2DD4BF" },
-      { name: "Auth / JWT", icon: ShieldCheck, color: "#5EEAD4" },
+      { name: "REST APIs", icon: tsg("restapi") },
+      { name: "Auth / JWT", icon: ShieldCheck, color: "#1D4ED8" },
     ],
   },
   {
@@ -73,9 +69,9 @@ export const skillCategories: SkillCategory[] = [
       { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
       { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
       { name: "Snowflake", icon: SiSnowflake, color: "#29B5E8" },
-      { name: "Valkey", icon: DatabaseZap, color: "#2DD4BF" },
+      { name: "Valkey", icon: DatabaseZap, color: "#1D4ED8" },
       { name: "Redis", icon: SiRedis, color: "#FF4438" },
-      { name: "pgVector", icon: Boxes, color: "#5EEAD4" },
+      { name: "pgVector", icon: Boxes, color: "#1E3A8A" },
     ],
   },
   {
@@ -83,13 +79,12 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Git", icon: SiGit, color: "#F05032" },
       { name: "GitLab", icon: SiGitlab, color: "#FC6D26" },
-      { name: "Docker", icon: SiDocker, color: "#2496ED" },
-      { name: "Linux", icon: SiLinux, color: "#FCC624" },
+      { name: "Docker", icon: tsg("docker") },
+      { name: "Linux", icon: SiLinux, color: "#333333" },
       { name: "Postman", icon: SiPostman, color: "#FF6C37" },
-      { name: "Vercel", icon: SiVercel, color: "#FFFFFF" },
+      { name: "Vercel", icon: SiVercel, color: "#14161C" },
     ],
   },
 ];
 
-// A flat list used by the continuously-scrolling marquee.
 export const marqueeSkills: Skill[] = skillCategories.flatMap((c) => c.skills);

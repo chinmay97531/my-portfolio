@@ -180,17 +180,17 @@ export const socials: SocialLink[] = [
 ];
 
 export const resumeUrl =
-  "https://drive.google.com/file/d/1rIWQOrihQxYF7UINyPUvl5jj5a7zGaCq/view";
-export const resumeCardUrl = "/previews/resume.webp";
+  "https://drive.google.com/file/d/1gHcbGLf8wjW2tgu1sI8xZ5-SLVOn5D7l/";
+export const resumeCardUrl = "/previews/resume.webp?v=3";
 
 export const githubUrl = "https://github.com/chinmay97531";
 export const githubCardUrl =
-  "https://streak-stats.demolab.com/?user=chinmay97531&theme=dark&hide_border=true&background=111722&ring=2dd4bf&fire=2dd4bf&currStreakLabel=e7ecf3&sideLabels=e7ecf3&dates=94a3b8";
+  "https://streak-stats.demolab.com/?user=chinmay97531&theme=light&hide_border=true&background=FFFFFF&ring=1D4ED8&fire=1D4ED8&currStreakLabel=0F172A&sideLabels=0F172A&dates=6B7280";
 export const githubChartUrl =
-  "https://ghchart.rshah.org/2dd4bf/chinmay97531";
+  "https://ghchart.rshah.org/1d4ed8/chinmay97531";
 export const linkedinUrl = "https://www.linkedin.com/in/chinmay-mittal-695825257/";
 export const linkedinCardUrl = "/previews/linkedin.webp";
 export const leetcodeUrl = "https://leetcode.com/u/Chinmay9753";
 export const leetcodeCardUrl =
-  "https://leetcard.jacoblin.cool/Chinmay9753?theme=dark&font=Sora&ext=heatmap";
+  "https://leetcard.jacoblin.cool/Chinmay9753?theme=light&font=DM%20Sans&ext=heatmap";
 export const emailUrl = "mailto:chinmaymittal0000@gmail.com";

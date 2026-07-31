@@ -1,17 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Sora } from "next/font/google";
+import { DM_Sans, Syne } from "next/font/google";
 import "./globals.css";
 import Preloader from "@/components/Preloader";
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-dm-sans",
   display: "swap",
 });
 
-const sora = Sora({
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-sora",
+  variable: "--font-syne",
   display: "swap",
 });
 
@@ -39,7 +39,14 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Chinmay Mittal",
     type: "website",
-    images: [{ url: "/images/mine.png", width: 800, height: 800, alt: "Chinmay Mittal" }],
+    images: [
+      {
+        url: "/images/mine.png",
+        width: 800,
+        height: 800,
+        alt: "Chinmay Mittal",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -54,7 +61,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#05070a",
+  themeColor: "#F7F8FA",
   width: "device-width",
   initialScale: 1,
 };
@@ -63,9 +70,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${syne.variable}`}>
       <head>
-        {/* Warm the journey slideshow so production intro does not wait on cold image fetches. */}
         <link
           rel="preload"
           as="image"
@@ -84,9 +90,14 @@ export default function RootLayout({
           href="/journey/zscaler-intern.webp"
           type="image/webp"
         />
-        <link rel="preload" as="image" href="/images/mine.webp" type="image/webp" />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/mine.webp"
+          type="image/webp"
+        />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased text-base-900">
         <Preloader />
         {children}
       </body>
