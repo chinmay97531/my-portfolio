@@ -62,19 +62,6 @@ export default function Footer() {
             </div>
           </div>
         </motion.div>
-
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-sm text-white/40 sm:flex-row">
-          <p>
-            © {new Date().getFullYear()} Chinmay Mittal. All rights reserved.
-          </p>
-          <a
-            href="#home"
-            className="inline-flex items-center gap-2 transition-colors hover:text-accent"
-          >
-            Back to top
-            <ArrowUp size={16} />
-          </a>
-        </div>
       </div>
     </footer>
   );

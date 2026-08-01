@@ -1,0 +1,23 @@
+# Chinmay Mittal
+
+> Software engineer and full-stack developer. Student at Thapar Institute of Engineering & Technology. Software Engineering Intern at Zscaler.
+
+## Identity
+
+- Name: Chinmay Mittal
+- Role: Software Engineer / Full-Stack Developer
+- Education: Thapar Institute of Engineering & Technology (Patiala, Punjab)
+- Work: Software Engineering Intern at Zscaler (Mohali, Punjab) — Product Business Operations, QBR platform (Next.js, FastAPI, PostgreSQL, AWS)
+- Prior: ELC Summer Intern at Thapar — Smart AI IoT Food Spoilage Detection
+
+## Site
+
+- Portfolio: https://chinmaymittal.dev
+- GitHub: https://github.com/chinmay97531
+- LinkedIn: https://www.linkedin.com/in/chinmay-mittal-695825257/
+- LeetCode: https://leetcode.com/u/Chinmay9753
+- Email: chinmaymittal0000@gmail.com
+
+## Focus
+
+Builds web and app experiences with React, Next.js, TypeScript, Node.js, and related full-stack technologies. Projects include RAG Bot, TaskFlow, Brainly App, LMS, and Food Spoilage Detection.

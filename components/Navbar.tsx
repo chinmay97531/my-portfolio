@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const links = [
   { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
@@ -38,20 +38,11 @@ export default function Navbar() {
           scrolled ? "glass shadow-lg shadow-black/30" : "bg-transparent"
         }`}
       >
-        <a href="#home" className="group flex items-center gap-2.5">
-          <span className="relative h-9 w-9 overflow-hidden rounded-full bg-gradient-to-br from-accent/25 to-sky-400/20 ring-2 ring-accent/50 transition-all duration-300 group-hover:ring-accent">
-            <Image
-              src="/images/mine.webp"
-              alt="Chinmay Mittal"
-              fill
-              sizes="36px"
-              className="scale-110 object-cover object-top"
-              priority
-            />
-          </span>
-          <span className="font-display text-lg font-semibold tracking-tight text-white/90">
-            Chinmay<span className="text-accent">.</span>
-          </span>
+        <a
+          href="#home"
+          className="font-display text-lg font-semibold tracking-tight text-white/90 transition-colors hover:text-white"
+        >
+          Chinmay<span className="text-accent">.</span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">

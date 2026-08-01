@@ -2,6 +2,14 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import Preloader from "@/components/Preloader";
+import { personName, siteUrl } from "@/lib/data";
+import {
+  getPersonJsonLd,
+  getWebSiteJsonLd,
+  siteDescription,
+  siteKeywords,
+  siteTitle,
+} from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,37 +23,39 @@ const sora = Sora({
   display: "swap",
 });
 
-const siteUrl = "https://chinmaymittal.dev";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Chinmay Mittal — Software Engineer",
-  description:
-    "Portfolio of Chinmay Mittal, a software engineer and full-stack developer building fast, delightful web and app experiences.",
-  keywords: [
-    "Chinmay Mittal",
-    "Software Engineer",
-    "Full-Stack Developer",
-    "Web Developer",
-    "React",
-    "Next.js",
-    "Portfolio",
-  ],
-  authors: [{ name: "Chinmay Mittal" }],
+  title: siteTitle,
+  description: siteDescription,
+  keywords: siteKeywords,
+  authors: [{ name: personName, url: siteUrl }],
+  creator: personName,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   openGraph: {
-    title: "Chinmay Mittal — Software Engineer",
-    description:
-      "Portfolio of Chinmay Mittal, a software engineer and full-stack developer.",
+    title: siteTitle,
+    description: siteDescription,
     url: siteUrl,
-    siteName: "Chinmay Mittal",
+    siteName: personName,
     type: "website",
-    images: [{ url: "/images/mine.png", width: 800, height: 800, alt: "Chinmay Mittal" }],
+    locale: "en_US",
+    images: [
+      { url: "/images/mine.png", width: 800, height: 800, alt: personName },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chinmay Mittal — Software Engineer",
-    description:
-      "Portfolio of Chinmay Mittal, a software engineer and full-stack developer.",
+    title: siteTitle,
+    description: siteDescription,
     images: ["/images/mine.png"],
   },
   icons: {
@@ -63,6 +73,8 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const structuredData = [getPersonJsonLd(), getWebSiteJsonLd()];
+
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`}>
       <head>
@@ -86,6 +98,12 @@ export default function RootLayout({
           type="image/webp"
         />
         <link rel="preload" as="image" href="/images/mine.webp" type="image/webp" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
       </head>
       <body className="font-sans antialiased">
         <Preloader />

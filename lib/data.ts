@@ -34,6 +34,12 @@ export type Experience = {
 
 export const role = "Software Engineer";
 
+export const siteUrl = "https://chinmaymittal.dev";
+export const personName = "Chinmay Mittal";
+export const personEmail = "chinmaymittal0000@gmail.com";
+export const thaparName = "Thapar Institute of Engineering & Technology";
+export const zscalerName = "Zscaler";
+
 export const experiences: Experience[] = [
   {
     role: "Software Engineering Intern",

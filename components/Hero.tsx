@@ -53,16 +53,16 @@ export default function Hero() {
       className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-28 pb-40 sm:pb-48"
     >
       <div className="section-shell">
-        <div className="grid w-full items-center gap-12 md:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid w-full items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <motion.div
             variants={container}
             initial="hidden"
             animate="show"
-            className="order-2 md:order-1"
+            className="order-2 lg:order-1"
           >
             <motion.span
               variants={item}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/70"
+              className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-4 py-1.5 text-sm text-accent-soft"
             >
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
@@ -71,36 +71,30 @@ export default function Hero() {
               Available for opportunities
             </motion.span>
 
-            <motion.p
-              variants={item}
-              className="mt-6 text-sm font-semibold uppercase tracking-[0.3em] text-accent"
-            >
-              Hi, I&apos;m Chinmay Mittal
-            </motion.p>
-
             <motion.h1
               variants={item}
-              className="mt-3 font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl"
+              className="mt-7 font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]"
             >
-              I&apos;m a{" "}
-              <span className="text-gradient animate-gradient-x">{role}</span>
+              <span className="block">Chinmay Mittal</span>
+              <span className="mt-2 block text-gradient animate-gradient-x">
+                {role}
+              </span>
             </motion.h1>
 
             <motion.p
               variants={item}
               className="mt-6 max-w-lg text-base leading-relaxed text-white/60 sm:text-lg"
             >
-              I design and build fast, accessible, and delightful web and app
-              experiences — from polished front-ends to robust back-ends.
+              I build fast, scalable products that solve real problems.
             </motion.p>
 
             <motion.div
               variants={item}
-              className="mt-8 flex flex-wrap items-center gap-4"
+              className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4"
             >
               <a
                 href="#projects"
-                className="group inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-semibold text-base-950 transition-transform hover:scale-105"
+                className="group inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-semibold text-base-950 shadow-lg shadow-accent/20 transition-all hover:scale-[1.03] hover:shadow-accent/35"
               >
                 View my work
                 <ArrowRight
@@ -108,8 +102,14 @@ export default function Hero() {
                   className="transition-transform group-hover:translate-x-1"
                 />
               </a>
+              <a
+                href="#about"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/[0.03] px-6 py-3 font-semibold text-white/80 transition-all hover:border-accent/40 hover:bg-white/[0.06] hover:text-white"
+              >
+                About me
+              </a>
 
-              <div className="flex items-center gap-3">
+              <div className="flex w-full items-center gap-3 sm:ml-1 sm:w-auto">
                 <ChartHoverLink
                   href={githubUrl}
                   label="GitHub"
@@ -167,30 +167,34 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="order-1 flex justify-center md:order-2"
+            className="order-1 flex justify-center lg:order-2"
           >
-            <div className="group relative flex items-center justify-center">
-              {/* Soft spotlight glow behind the photo */}
-              <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-accent/30 via-sky-400/20 to-transparent blur-3xl sm:h-[380px] sm:w-[380px]" />
+            <div className="relative flex items-center justify-center">
+              <div className="absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-accent/35 via-sky-400/15 to-transparent blur-3xl sm:h-[420px] sm:w-[420px]" />
+              <div
+                className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/20 sm:h-[380px] sm:w-[380px]"
+                aria-hidden="true"
+              />
               <div className="relative animate-float">
-                <Image
-                  src="/images/mine.webp"
-                  alt="Chinmay Mittal"
-                  width={420}
-                  height={420}
-                  priority
-                  className="h-[300px] w-[300px] rounded-full object-cover ring-1 ring-white/10 drop-shadow-[0_25px_45px_rgba(0,0,0,0.55)] sm:h-[400px] sm:w-[400px]"
-                />
+                <div className="rounded-full bg-gradient-to-br from-accent/50 via-sky-400/30 to-transparent p-[3px]">
+                  <Image
+                    src="/images/mine.webp"
+                    alt="Chinmay Mittal"
+                    width={420}
+                    height={420}
+                    priority
+                    className="h-[280px] w-[280px] rounded-full object-cover bg-base-900 drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)] sm:h-[360px] sm:w-[360px]"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Oversized editorial name band */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -198,7 +202,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-x-0 bottom-4 flex w-full select-none justify-center overflow-hidden sm:bottom-8"
         aria-hidden="true"
       >
-        <span className="bg-gradient-to-b from-white/[0.12] to-white/[0.02] bg-clip-text font-display text-[19vw] font-black leading-none tracking-tighter text-transparent">
+        <span className="bg-gradient-to-b from-white/[0.14] to-white/[0.02] bg-clip-text font-display text-[17vw] font-black leading-none tracking-tighter text-transparent sm:text-[19vw]">
           CHINMAY&nbsp;MITTAL
         </span>
       </motion.div>
@@ -254,7 +258,6 @@ function ChartHoverLink({
             ))}
           </div>
         </div>
-        {/* Anchor caret */}
         <div className="mx-auto h-2.5 w-2.5 -translate-y-1/2 rotate-45 border-b border-r border-white/10 bg-[rgba(17,23,34,0.85)]" />
       </div>
     </div>

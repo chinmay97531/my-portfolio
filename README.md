@@ -18,7 +18,7 @@ A modern, animated personal portfolio built with **Next.js**, **TypeScript**, an
 - Sticky glassmorphism navigation with a responsive mobile menu
 - Skills grid and project cards with reveal-on-scroll animations
 - Fully responsive, accessible, and `prefers-reduced-motion` aware
-- SEO metadata and Open Graph / Twitter cards
+- SEO metadata, Open Graph / Twitter cards, Person JSON-LD, sitemap, robots.txt, and `llms.txt`
 
 ## Getting Started
 
@@ -43,6 +43,19 @@ The site is a static export (`output: "export"` in `next.config.mjs`). The
 included GitHub Actions workflow (`.github/workflows/deploy.yml`) builds the
 site and publishes the `out/` directory to GitHub Pages on every push to
 `main`. The custom domain is configured via `public/CNAME`.
+
+## SEO & discoverability (after deploy)
+
+On-site signals (metadata, H1, About, JSON-LD, `/sitemap.xml`, `/robots.txt`, `/llms.txt`) ship with the site. Ranking and ChatGPT visibility also need off-site follow-up:
+
+1. **Google Search Console** — add `https://chinmaymittal.dev`, submit `https://chinmaymittal.dev/sitemap.xml`, and request indexing of the homepage. Confirm view-source shows your name, Thapar, Zscaler, and `application/ld+json`.
+2. **Bing Webmaster Tools** — add the same property and sitemap (ChatGPT often uses Bing’s index for web results).
+3. **LinkedIn** — headline/about: “Software Engineer | Thapar Institute | Zscaler intern”; feature `chinmaymittal.dev`.
+4. **GitHub** — profile bio + website link; pin major repos; use the exact name **Chinmay Mittal** everywhere.
+5. **Keep identity consistent** — same name, photo, school, and employer across LinkedIn, GitHub, resume, and this site.
+6. **Earn mentions off-domain** — Thapar/ELC pages, hackathon writeups, Dev.to/Hashnode posts, and project READMEs that link back.
+
+Expect technical indexing within days; name-query visibility typically builds over weeks to months as profiles and mentions corroborate the same entity.
 
 ## Contact
 
