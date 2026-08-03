@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useId } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, FileText } from "lucide-react";
 import { SiLeetcode } from "react-icons/si";
 import {
   role,
+  personName,
   githubUrl,
   githubCardUrl,
   githubChartUrl,
@@ -18,18 +18,6 @@ import {
   leetcodeCardUrl,
 } from "@/lib/data";
 
-const container = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
 const chartImageUrls = [
   githubCardUrl,
   githubChartUrl,
@@ -39,7 +27,6 @@ const chartImageUrls = [
 ];
 
 export default function Hero() {
-  // Preload hover charts so the first hover feels instant.
   useEffect(() => {
     chartImageUrls.forEach((src) => {
       const img = new window.Image();
@@ -50,48 +37,33 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-28 pb-40 sm:pb-48"
+      className="relative flex min-h-screen flex-col justify-center pt-28 pb-36 sm:pb-40"
     >
-      <div className="section-shell">
-        <div className="grid w-full items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div className="section-shell relative z-10">
+        <div className="flex w-full justify-center lg:justify-end">
           <motion.div
-            variants={container}
-            initial="hidden"
-            animate="show"
-            className="order-2 lg:order-1"
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="flex w-full max-w-xl flex-col items-center text-center lg:items-end lg:text-right"
           >
-            <motion.span
-              variants={item}
-              className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-4 py-1.5 text-sm text-accent-soft"
-            >
+            <span className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-4 py-1.5 text-sm text-accent-soft">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
               </span>
               Available for opportunities
-            </motion.span>
+            </span>
 
-            <motion.h1
-              variants={item}
-              className="mt-7 font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.5rem]"
-            >
-              <span className="block">Chinmay Mittal</span>
-              <span className="mt-2 block text-gradient animate-gradient-x">
-                {role}
-              </span>
-            </motion.h1>
+            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.35rem]">
+              <span className="text-gradient animate-gradient-x">{role}</span>
+            </h1>
 
-            <motion.p
-              variants={item}
-              className="mt-6 max-w-lg text-base leading-relaxed text-white/60 sm:text-lg"
-            >
-              I build fast, scalable products that solve real problems.
-            </motion.p>
+            <p className="mt-5 max-w-md text-base leading-relaxed text-white/60 sm:text-lg lg:ml-auto">
+              Building fast, scalable products that solve real problems.
+            </p>
 
-            <motion.div
-              variants={item}
-              className="mt-9 flex flex-wrap items-center gap-3 sm:gap-4"
-            >
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:justify-end">
               <a
                 href="#projects"
                 className="group inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-semibold text-base-950 shadow-lg shadow-accent/20 transition-all hover:scale-[1.03] hover:shadow-accent/35"
@@ -108,88 +80,61 @@ export default function Hero() {
               >
                 About me
               </a>
+            </div>
 
-              <div className="flex w-full items-center gap-3 sm:ml-1 sm:w-auto">
-                <ChartHoverLink
-                  href={githubUrl}
-                  label="GitHub"
-                  images={[
-                    {
-                      src: githubCardUrl,
-                      alt: "GitHub streak stats for chinmay97531",
-                    },
-                    {
-                      src: githubChartUrl,
-                      alt: "GitHub contribution chart for chinmay97531",
-                    },
-                  ]}
-                >
-                  <Github size={20} />
-                </ChartHoverLink>
-                <ChartHoverLink
-                  href={linkedinUrl}
-                  label="LinkedIn"
-                  images={[
-                    {
-                      src: linkedinCardUrl,
-                      alt: "LinkedIn profile preview for Chinmay Mittal",
-                    },
-                  ]}
-                >
-                  <Linkedin size={20} />
-                </ChartHoverLink>
-                <ChartHoverLink
-                  href={leetcodeUrl}
-                  label="LeetCode"
-                  images={[
-                    {
-                      src: leetcodeCardUrl,
-                      alt: "LeetCode stats and heatmap for Chinmay9753",
-                    },
-                  ]}
-                >
-                  <SiLeetcode size={19} />
-                </ChartHoverLink>
-                <ChartHoverLink
-                  href={resumeUrl}
-                  label="Resume"
-                  images={[
-                    {
-                      src: resumeCardUrl,
-                      alt: "Resume preview for Chinmay Mittal",
-                    },
-                  ]}
-                >
-                  <FileText size={20} />
-                </ChartHoverLink>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="order-1 flex justify-center lg:order-2"
-          >
-            <div className="relative flex items-center justify-center">
-              <div className="absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-accent/35 via-sky-400/15 to-transparent blur-3xl sm:h-[420px] sm:w-[420px]" />
-              <div
-                className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/20 sm:h-[380px] sm:w-[380px]"
-                aria-hidden="true"
-              />
-              <div className="relative animate-float">
-                <div className="rounded-full bg-gradient-to-br from-accent/50 via-sky-400/30 to-transparent p-[3px]">
-                  <Image
-                    src="/images/mine.webp"
-                    alt="Chinmay Mittal"
-                    width={420}
-                    height={420}
-                    priority
-                    className="h-[280px] w-[280px] rounded-full object-cover bg-base-900 drop-shadow-[0_30px_50px_rgba(0,0,0,0.55)] sm:h-[360px] sm:w-[360px]"
-                  />
-                </div>
-              </div>
+            <div className="mt-5 flex items-center justify-center gap-3 lg:justify-end">
+              <ChartHoverLink
+                href={githubUrl}
+                label="GitHub"
+                images={[
+                  {
+                    src: githubCardUrl,
+                    alt: "GitHub streak stats for chinmay97531",
+                  },
+                  {
+                    src: githubChartUrl,
+                    alt: "GitHub contribution chart for chinmay97531",
+                  },
+                ]}
+              >
+                <Github size={20} />
+              </ChartHoverLink>
+              <ChartHoverLink
+                href={linkedinUrl}
+                label="LinkedIn"
+                images={[
+                  {
+                    src: linkedinCardUrl,
+                    alt: `LinkedIn profile preview for ${personName}`,
+                  },
+                ]}
+              >
+                <Linkedin size={20} />
+              </ChartHoverLink>
+              <ChartHoverLink
+                href={leetcodeUrl}
+                label="LeetCode"
+                images={[
+                  {
+                    src: leetcodeCardUrl,
+                    alt: "LeetCode stats and heatmap for Chinmay9753",
+                  },
+                ]}
+              >
+                <SiLeetcode size={19} />
+              </ChartHoverLink>
+              <ChartHoverLink
+                href={resumeUrl}
+                label="Resume"
+                images={[
+                  {
+                    src: resumeCardUrl,
+                    alt: `Resume preview for ${personName}`,
+                  },
+                ]}
+              >
+                <FileText size={20} />
+              </ChartHoverLink>
             </div>
           </motion.div>
         </div>
@@ -199,12 +144,22 @@ export default function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-        className="pointer-events-none absolute inset-x-0 bottom-4 flex w-full select-none justify-center overflow-hidden sm:bottom-8"
+        className="pointer-events-none absolute inset-x-0 bottom-5 z-0 w-full select-none overflow-hidden sm:bottom-8"
         aria-hidden="true"
       >
-        <span className="bg-gradient-to-b from-white/[0.14] to-white/[0.02] bg-clip-text font-display text-[17vw] font-black leading-none tracking-tighter text-transparent sm:text-[19vw]">
-          CHINMAY&nbsp;MITTAL
-        </span>
+        <div
+          className="flex w-max animate-marquee"
+          style={{ ["--marquee-duration" as string]: "22s" }}
+        >
+          {[0, 1, 2, 3].map((copy) => (
+            <span
+              key={copy}
+              className="bg-gradient-to-b from-white/[0.16] to-white/[0.02] bg-clip-text pr-12 font-display text-5xl font-black leading-none tracking-[0.06em] text-transparent sm:pr-16 sm:text-7xl md:text-8xl lg:text-9xl"
+            >
+              CHINMAY&nbsp;MITTAL
+            </span>
+          ))}
+        </div>
       </motion.div>
     </section>
   );
