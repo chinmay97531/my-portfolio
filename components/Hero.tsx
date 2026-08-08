@@ -55,18 +55,18 @@ export default function Hero() {
               Available for opportunities
             </span>
 
-            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.35rem]">
+            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tight text-fg sm:text-5xl lg:text-[3.35rem]">
               <span className="text-gradient animate-gradient-x">{role}</span>
             </h1>
 
-            <p className="mt-5 max-w-md text-base leading-relaxed text-white/60 sm:text-lg lg:ml-auto">
+            <p className="mt-5 max-w-md text-base leading-relaxed text-fg/60 sm:text-lg lg:ml-auto">
               Building fast, scalable products that solve real problems.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:justify-end">
               <a
                 href="#projects"
-                className="group inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-semibold text-base-950 shadow-lg shadow-accent/20 transition-all hover:scale-[1.03] hover:shadow-accent/35"
+                className="group inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-semibold text-ink shadow-lg shadow-accent/20 transition-all hover:scale-[1.03] hover:shadow-accent/35"
               >
                 View my work
                 <ArrowRight
@@ -76,7 +76,7 @@ export default function Hero() {
               </a>
               <a
                 href="#about"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/[0.03] px-6 py-3 font-semibold text-white/80 transition-all hover:border-accent/40 hover:bg-white/[0.06] hover:text-white"
+                className="inline-flex items-center gap-2 rounded-xl border border-fg/12 bg-fg/[0.03] px-6 py-3 font-semibold text-fg/80 transition-all hover:border-accent/40 hover:bg-fg/[0.06] hover:text-fg"
               >
                 About me
               </a>
@@ -154,7 +154,7 @@ export default function Hero() {
           {[0, 1, 2, 3].map((copy) => (
             <span
               key={copy}
-              className="bg-gradient-to-b from-white/[0.16] to-white/[0.02] bg-clip-text pr-12 font-display text-5xl font-black leading-none tracking-[0.06em] text-transparent sm:pr-16 sm:text-7xl md:text-8xl lg:text-9xl"
+              className="bg-gradient-to-b from-fg/[0.16] to-fg/[0.02] bg-clip-text pr-12 font-display text-5xl font-black leading-none tracking-[0.06em] text-transparent sm:pr-16 sm:text-7xl md:text-8xl lg:text-9xl"
             >
               CHINMAY&nbsp;MITTAL
             </span>
@@ -186,7 +186,7 @@ function ChartHoverLink({
         rel="noopener noreferrer"
         aria-label={label}
         aria-describedby={tooltipId}
-        className="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-all hover:-translate-y-1 hover:border-accent/50 hover:text-accent focus-visible:-translate-y-1 focus-visible:border-accent/50 focus-visible:text-accent focus-visible:outline-none"
+        className="grid h-11 w-11 place-items-center rounded-xl border border-fg/10 bg-fg/5 text-fg/70 transition-all hover:-translate-y-1 hover:border-accent/50 hover:text-accent focus-visible:-translate-y-1 focus-visible:border-accent/50 focus-visible:text-accent focus-visible:outline-none"
       >
         {children}
       </a>
@@ -196,7 +196,7 @@ function ChartHoverLink({
         role="tooltip"
         className="pointer-events-none absolute bottom-full left-1/2 z-50 mb-3 w-[min(92vw,360px)] -translate-x-1/2 opacity-0 transition-all duration-200 ease-out group-hover/chart:pointer-events-auto group-hover/chart:opacity-100 group-focus-within/chart:pointer-events-auto group-focus-within/chart:opacity-100"
       >
-        <div className="glass overflow-hidden rounded-2xl border border-white/10 p-2 shadow-2xl shadow-black/50 ring-1 ring-white/5">
+        <div className="glass overflow-hidden rounded-2xl border border-fg/10 p-2 shadow-2xl shadow-black/20 ring-1 ring-fg/5 dark:shadow-black/50">
           <div className="flex flex-col gap-2">
             {images.map((image) => (
               // eslint-disable-next-line @next/next/no-img-element -- external SVG/PNG card services
@@ -213,7 +213,7 @@ function ChartHoverLink({
             ))}
           </div>
         </div>
-        <div className="mx-auto h-2.5 w-2.5 -translate-y-1/2 rotate-45 border-b border-r border-white/10 bg-[rgba(17,23,34,0.85)]" />
+        <div className="tooltip-caret mx-auto h-2.5 w-2.5 -translate-y-1/2 rotate-45 border-b border-r border-fg/10" />
       </div>
     </div>
   );

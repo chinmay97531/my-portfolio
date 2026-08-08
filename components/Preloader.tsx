@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 type Milestone = {
@@ -74,13 +75,25 @@ function preloadImage(src: string) {
 }
 
 export default function Preloader() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const reduced = useReducedMotion() ?? false;
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(isHome);
   const [ready, setReady] = useState(false);
   const [step, setStep] = useState(0);
   const doneRef = useRef(false);
 
   useEffect(() => {
+    if (!isHome) {
+      setLoading(false);
+      document.body.style.overflow = "";
+      return;
+    }
+  }, [isHome]);
+
+  useEffect(() => {
+    if (!isHome || !loading) return;
+
     let cancelled = false;
     const urls = ["/images/mine.webp", ...journey.map((m) => m.img)];
 
@@ -96,10 +109,10 @@ export default function Preloader() {
       cancelled = true;
       clearTimeout(bootCap);
     };
-  }, []);
+  }, [isHome, loading]);
 
   useEffect(() => {
-    if (!ready || doneRef.current) return;
+    if (!isHome || !ready || doneRef.current) return;
 
     let i = 0;
     let stepTimer: ReturnType<typeof setTimeout>;
@@ -127,7 +140,7 @@ export default function Preloader() {
       clearTimeout(stepTimer);
       clearTimeout(cap);
     };
-  }, [ready]);
+  }, [isHome, ready]);
 
   useEffect(() => {
     document.body.style.overflow = loading ? "hidden" : "";
@@ -135,6 +148,8 @@ export default function Preloader() {
       document.body.style.overflow = "";
     };
   }, [loading]);
+
+  if (!isHome) return null;
 
   const active = journey[step];
   const kb = kenBurns(active.pan, reduced);
@@ -153,7 +168,7 @@ export default function Preloader() {
 
           <div className="relative flex w-full max-w-3xl flex-col items-center">
             <div className="mb-6 flex w-full items-center justify-center gap-4">
-              <span className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5">
+              <span className="inline-flex items-center gap-2.5 rounded-full border border-fg/10 bg-fg/5 px-4 py-1.5">
                 <span className="relative h-6 w-6 overflow-hidden rounded-full bg-gradient-to-br from-accent/25 to-sky-400/20 ring-1 ring-accent/50">
                   <Image
                     src="/images/mine.webp"
@@ -164,20 +179,20 @@ export default function Preloader() {
                     priority
                   />
                 </span>
-                <span className="text-sm font-medium text-white/70">
+                <span className="text-sm font-medium text-fg/70">
                   Chinmay Mittal
                 </span>
               </span>
             </div>
 
             <div className="mb-5 text-center">
-              <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+              <h2 className="font-display text-3xl font-bold tracking-tight text-fg sm:text-4xl md:text-5xl">
                 A quick look at my{" "}
                 <span className="text-gradient">journey</span>
               </h2>
             </div>
 
-            <div className="relative aspect-video w-full overflow-hidden rounded-3xl shadow-2xl shadow-black/60 ring-1 ring-white/10">
+            <div className="relative aspect-video w-full overflow-hidden rounded-3xl shadow-2xl shadow-black/20 ring-1 ring-fg/10 dark:shadow-black/60">
               {!ready && (
                 <div className="absolute inset-0 animate-pulse bg-base-800" />
               )}
@@ -216,9 +231,9 @@ export default function Preloader() {
                     </motion.div>
 
                     {/* Cinematic grade overlays */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-base-950 via-base-950/45 to-black/20" />
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.45)_100%)]" />
-                    <div className="bg-noise pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-overlay" />
+                    <div className="preloader-scrim absolute inset-0" />
+                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.45)_100%)] opacity-25 dark:opacity-100" />
+                    <div className="bg-noise pointer-events-none absolute inset-0 mix-blend-overlay" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -236,10 +251,10 @@ export default function Preloader() {
                       <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-accent sm:text-xs">
                         {active.tag}
                       </span>
-                      <h3 className="mt-1.5 font-display text-2xl font-bold leading-tight text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.65)] sm:text-4xl">
+                      <h3 className="preloader-caption mt-1.5 font-display text-2xl font-bold leading-tight text-fg drop-shadow-[0_2px_14px_rgba(0,0,0,0.65)] sm:text-4xl">
                         {active.title}
                       </h3>
-                      <p className="mt-1.5 max-w-lg text-sm text-white/75 sm:text-base">
+                      <p className="preloader-caption mt-1.5 max-w-lg text-sm text-fg/75 sm:text-base">
                         {active.subtitle}
                       </p>
                     </motion.div>
@@ -252,7 +267,7 @@ export default function Preloader() {
               {journey.map((_, idx) => (
                 <div
                   key={idx}
-                  className="h-1 flex-1 overflow-hidden rounded-full bg-white/12"
+                  className="h-1 flex-1 overflow-hidden rounded-full bg-fg/12"
                 >
                   <motion.div
                     className="h-full origin-left rounded-full bg-gradient-to-r from-accent-soft to-accent"

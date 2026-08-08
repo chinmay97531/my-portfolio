@@ -23,10 +23,9 @@ export default function About() {
         <div className="mx-auto mt-14 grid max-w-5xl gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-stretch lg:gap-14">
           <motion.article
             initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55 }}
-            className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-transparent p-8 sm:p-10"
+            className="relative overflow-hidden rounded-3xl border border-fg/10 bg-gradient-to-br from-fg/[0.05] to-transparent p-8 sm:p-10"
           >
             <div
               className="absolute bottom-8 left-0 top-8 w-1 rounded-full bg-gradient-to-b from-accent via-accent/50 to-transparent"
@@ -37,16 +36,16 @@ export default function About() {
               aria-hidden="true"
             />
 
-            <div className="relative space-y-5 pl-5 text-base leading-relaxed text-white/65 sm:pl-6 sm:text-lg">
+            <div className="relative space-y-5 pl-5 text-base leading-relaxed text-fg/65 sm:pl-6 sm:text-lg">
               <p>
                 I&apos;m{" "}
-                <strong className="font-semibold text-white">{personName}</strong>
+                <strong className="font-semibold text-fg">{personName}</strong>
                 — a software engineer and full-stack developer who loves
                 building things that feel fast, clear, and useful.
               </p>
               <p>
                 I&apos;m studying Computer Engineering at{" "}
-                <strong className="font-semibold text-white">{thaparName}</strong>
+                <strong className="font-semibold text-fg">{thaparName}</strong>
                 , where I keep sharpening how I think about systems, products,
                 and craft. Outside of classes, I&apos;m usually sketching
                 ideas, shipping side projects, or refining something until it
@@ -64,37 +63,36 @@ export default function About() {
 
           <motion.aside
             initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.08 }}
             className="flex flex-col justify-center gap-5"
           >
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+            <div className="rounded-2xl border border-fg/10 bg-fg/[0.03] p-5">
               <div className="flex items-center gap-3 text-accent">
                 <GraduationCap size={18} />
                 <span className="text-xs font-semibold uppercase tracking-[0.18em]">
                   Education
                 </span>
               </div>
-              <p className="mt-3 font-display text-lg font-semibold leading-snug text-white">
+              <p className="mt-3 font-display text-lg font-semibold leading-snug text-fg">
                 {thaparName}
               </p>
-              <p className="mt-1 text-sm text-white/45">
+              <p className="mt-1 text-sm text-fg/45">
                 Computer Engineering · Patiala
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+            <div className="rounded-2xl border border-fg/10 bg-fg/[0.03] p-5">
               <div className="flex items-center gap-3 text-accent">
                 <Briefcase size={18} />
                 <span className="text-xs font-semibold uppercase tracking-[0.18em]">
                   Currently
                 </span>
               </div>
-              <p className="mt-3 font-display text-lg font-semibold leading-snug text-white">
+              <p className="mt-3 font-display text-lg font-semibold leading-snug text-fg">
                 {zscalerName}
               </p>
-              <p className="mt-1 text-sm text-white/45">
+              <p className="mt-1 text-sm text-fg/45">
                 Software Engineering Intern · Mohali
               </p>
             </div>

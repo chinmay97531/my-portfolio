@@ -18,12 +18,30 @@ function useIsMobile() {
   return mobile;
 }
 
+function useIsLightTheme() {
+  const [light, setLight] = useState(false);
+  useEffect(() => {
+    const read = () =>
+      setLight(document.documentElement.classList.contains("light"));
+    read();
+    const observer = new MutationObserver(read);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
+  return light;
+}
+
 function GraphNetwork({
   count,
   pointer,
+  light,
 }: {
   count: number;
   pointer: React.MutableRefObject<PointerTarget>;
+  light: boolean;
 }) {
   const pointsRef = useRef<THREE.Points>(null);
   const linesRef = useRef<THREE.LineSegments>(null);
@@ -138,10 +156,10 @@ function GraphNetwork({
           <bufferAttribute attach="attributes-position" args={[positions, 3]} />
         </bufferGeometry>
         <pointsMaterial
-          color="#5eead4"
-          size={0.055}
+          color={light ? "#0d9488" : "#5eead4"}
+          size={light ? 0.06 : 0.055}
           transparent
-          opacity={0.85}
+          opacity={light ? 0.75 : 0.85}
           depthWrite={false}
           sizeAttenuation
         />
@@ -154,9 +172,9 @@ function GraphNetwork({
           />
         </bufferGeometry>
         <lineBasicMaterial
-          color="#2dd4bf"
+          color={light ? "#14b8a6" : "#2dd4bf"}
           transparent
-          opacity={0.28}
+          opacity={light ? 0.32 : 0.28}
           depthWrite={false}
         />
       </lineSegments>
@@ -184,6 +202,7 @@ function ParallaxRig({
 }
 
 function SceneContent({ mobile }: { mobile: boolean }) {
+  const light = useIsLightTheme();
   const pointer = useRef<PointerTarget>({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -201,10 +220,9 @@ function SceneContent({ mobile }: { mobile: boolean }) {
 
   return (
     <>
-      <color attach="background" args={["#05070a"]} />
       <ambientLight intensity={0.7} />
       <ParallaxRig pointer={pointer} />
-      <GraphNetwork count={pointCount} pointer={pointer} />
+      <GraphNetwork count={pointCount} pointer={pointer} light={light} />
     </>
   );
 }
@@ -230,9 +248,13 @@ export default function InteractiveScene() {
         gl={{
           antialias: true,
           alpha: true,
+          premultipliedAlpha: false,
           powerPreference: "high-performance",
         }}
-        style={{ width: "100%", height: "100%" }}
+        onCreated={({ gl }) => {
+          gl.setClearColor(0x000000, 0);
+        }}
+        style={{ width: "100%", height: "100%", background: "transparent" }}
       >
         <SceneContent mobile={mobile} />
       </Canvas>

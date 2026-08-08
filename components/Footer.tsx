@@ -18,8 +18,7 @@ export default function Footer() {
       <div className="section-shell">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="glass relative overflow-hidden rounded-3xl px-8 py-14 text-center sm:px-12"
         >
@@ -28,10 +27,10 @@ export default function Footer() {
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
               Get in touch
             </span>
-            <h2 className="mx-auto mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="mx-auto mt-3 max-w-2xl font-display text-3xl font-bold tracking-tight text-fg sm:text-4xl">
               Let&apos;s build something great together
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/60">
+            <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-fg/60">
               Have a project in mind or just want to say hi? My inbox is always
               open — I&apos;ll get back to you as soon as I can.
             </p>
@@ -39,7 +38,7 @@ export default function Footer() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="mailto:chinmaymittal0000@gmail.com"
-                className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-semibold text-base-950 transition-transform hover:scale-105"
+                className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-semibold text-ink transition-transform hover:scale-105"
               >
                 <Mail size={18} />
                 Say hello
@@ -54,7 +53,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="grid h-12 w-12 place-items-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition-all hover:-translate-y-1 hover:border-accent/50 hover:text-accent"
+                  className="grid h-12 w-12 place-items-center rounded-xl border border-fg/10 bg-fg/5 text-fg/70 transition-all hover:-translate-y-1 hover:border-accent/50 hover:text-accent"
                 >
                   <Icon size={20} />
                 </a>

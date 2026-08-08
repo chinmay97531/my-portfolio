@@ -2,6 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import Preloader from "@/components/Preloader";
+import Background from "@/components/Background";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { personName, siteUrl } from "@/lib/data";
 import {
   getPersonJsonLd,
@@ -65,10 +69,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#05070a",
+  themeColor: "#f8fafc",
   width: "device-width",
   initialScale: 1,
 };
+
+const themeInitScript = `(function(){try{var dark=localStorage.getItem("theme")==="dark";var root=document.documentElement;root.classList.toggle("dark",dark);root.classList.toggle("light",!dark);root.style.colorScheme=dark?"dark":"light";}catch(e){document.documentElement.classList.add("light");}})();`;
 
 export default function RootLayout({
   children,
@@ -76,8 +82,9 @@ export default function RootLayout({
   const structuredData = [getPersonJsonLd(), getWebSiteJsonLd()];
 
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+    <html lang="en" className={`${inter.variable} ${sora.variable} light`} suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         {/* Warm the journey slideshow so production intro does not wait on cold image fetches. */}
         <link
           rel="preload"
@@ -106,8 +113,13 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
-        <Preloader />
-        {children}
+        <ThemeProvider>
+          <Preloader />
+          <Background />
+          <Navbar />
+          <main className="relative min-h-screen">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

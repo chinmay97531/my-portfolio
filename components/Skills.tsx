@@ -25,8 +25,8 @@ export default function Skills() {
         <MarqueeRow items={rowC} duration="50s" />
 
         {/* Edge fades so chips melt into the background */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-base-950 to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-base-950 to-transparent" />
+        <div className="marquee-fade-l pointer-events-none absolute inset-y-0 left-0 w-32" />
+        <div className="marquee-fade-r pointer-events-none absolute inset-y-0 right-0 w-32" />
       </div>
     </section>
   );
@@ -63,7 +63,7 @@ function SkillChip({ skill }: { skill: Skill }) {
   return (
     <div className="glass mr-5 flex shrink-0 items-center gap-4 rounded-2xl px-8 py-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
       <Icon className="h-9 w-9" style={{ color: skill.color }} aria-hidden />
-      <span className="whitespace-nowrap text-xl font-semibold text-white/85">
+      <span className="whitespace-nowrap text-xl font-semibold text-fg/85">
         {skill.name}
       </span>
     </div>
@@ -82,19 +82,18 @@ export function SectionHeading({
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className="mx-auto max-w-2xl text-center"
     >
       <span className="text-sm font-semibold uppercase tracking-[0.2em] text-accent">
         {eyebrow}
       </span>
-      <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+      <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-fg sm:text-4xl">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-base leading-relaxed text-white/60">{subtitle}</p>
+        <p className="mt-4 text-base leading-relaxed text-fg/60">{subtitle}</p>
       )}
     </motion.div>
   );

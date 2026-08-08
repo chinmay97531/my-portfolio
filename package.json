@@ -4,7 +4,7 @@
   "private": true,
   "description": "Personal portfolio of Chinmay Mittal, built with Next.js and a 3D animated background.",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

@@ -90,7 +90,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       rel="noopener noreferrer"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.45, delay: (index % 3) * 0.08 }}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
@@ -162,15 +162,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-display text-lg font-semibold text-white">
+          <h3 className="font-display text-lg font-semibold text-fg">
             {project.title}
           </h3>
-          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/10 bg-white/5 text-white/60 transition-all group-hover:border-accent/50 group-hover:bg-accent group-hover:text-base-950">
+          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-fg/10 bg-fg/5 text-fg/60 transition-all group-hover:border-accent/50 group-hover:bg-accent group-hover:text-ink">
             <ArrowUpRight size={16} />
           </span>
         </div>
 
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-fg/55">
           {project.description}
         </p>
 
@@ -178,7 +178,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/60"
+              className="rounded-full border border-fg/10 bg-fg/5 px-3 py-1 text-xs font-medium text-fg/60"
             >
               {tag}
             </span>
