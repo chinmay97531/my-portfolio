@@ -62,7 +62,19 @@ function SkillChip({ skill }: { skill: Skill }) {
   const Icon = skill.icon;
   return (
     <div className="glass mr-5 flex shrink-0 items-center gap-4 rounded-2xl px-8 py-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10">
-      <Icon className="h-9 w-9" style={{ color: skill.color }} aria-hidden />
+      {skill.image ? (
+        // eslint-disable-next-line @next/next/no-img-element -- animated local SVG from TechStack Generator
+        <img
+          src={skill.image}
+          alt=""
+          width={36}
+          height={36}
+          className="h-9 w-9 object-contain"
+          aria-hidden
+        />
+      ) : (
+        <Icon className="h-9 w-9" style={{ color: skill.color }} aria-hidden />
+      )}
       <span className="whitespace-nowrap text-xl font-semibold text-fg/85">
         {skill.name}
       </span>

@@ -77,22 +77,23 @@ export const experiences: Experience[] = [
   },
 ];
 
+/** Legacy image paths — Skills marquee uses `@/lib/skills` (TSG + current icons). */
 export const skills: Skill[] = [
   { name: "HTML5", icon: "/logo/html.png" },
   { name: "CSS3", icon: "/logo/css.png" },
-  { name: "JavaScript", icon: "/logo/JS.png" },
-  { name: "TypeScript", icon: "/logo/typescript.png" },
+  { name: "JavaScript", icon: "/skills/tsg/js-icon.svg" },
+  { name: "TypeScript", icon: "/skills/tsg/ts-icon.svg" },
   { name: "Node.js", icon: "/logo/nodsJs.png" },
   { name: "Express", icon: "/logo/express.svg" },
-  { name: "React", icon: "/logo/React.png" },
+  { name: "React", icon: "/skills/tsg/react-icon.svg" },
   { name: "Next.js", icon: "/logo/NextJs.png" },
   { name: "Tailwind CSS", icon: "/logo/TailwindCSS.png" },
   { name: "MongoDB", icon: "/logo/MongoDB.png" },
   { name: "PostgreSQL", icon: "/logo/postgre.png" },
   { name: "C", icon: "/logo/c.png" },
-  { name: "C++", icon: "/logo/c++.png" },
-  { name: "Java", icon: "/logo/java.png" },
-  { name: "Python", icon: "/logo/Python.png" },
+  { name: "C++", icon: "/skills/tsg/cpp-icon.svg" },
+  { name: "Java", icon: "/skills/tsg/java-icon.svg" },
+  { name: "Python", icon: "/skills/tsg/python-icon.svg" },
 ];
 
 export const projects: Project[] = [
