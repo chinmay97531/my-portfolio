@@ -102,8 +102,8 @@ export const projects: Project[] = [
     description:
       "A retrieval-augmented generation chatbot that answers questions from your own knowledge base.",
     image: "/projects/ragbot.webp",
-    href: "https://ragbot-actual-ai.app.genez.io/",
-    liveUrl: "https://ragbot-actual-ai.app.genez.io/",
+    href: "https://vidmindai.vercel.app/",
+    liveUrl: "https://vidmindai.vercel.app/",
     tags: ["AI", "RAG", "Full-Stack"],
   },
   {
@@ -187,7 +187,7 @@ export const socials: SocialLink[] = [
 ];
 
 export const resumeUrl =
-  "https://drive.google.com/file/d/1rIWQOrihQxYF7UINyPUvl5jj5a7zGaCq/view";
+  "https://drive.google.com/file/d/1Y6tmkbjvyeyjTaEtCDShYBtX9nM9PEGa/view";
 export const resumeCardUrl = "/previews/resume.webp";
 
 export const githubUrl = "https://github.com/chinmay97531";
