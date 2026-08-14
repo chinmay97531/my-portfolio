@@ -100,7 +100,7 @@ export const projects: Project[] = [
   {
     title: "VidMind",
     description:
-      "A retrieval-augmented generation chatbot that answers questions from your own knowledge base.",
+      "A RAG-powered chatbot that lets you ask questions about any YouTube video by simply providing its URL.",
     image: "/projects/vidmind.webp",
     href: "https://vidmindai.vercel.app/",
     liveUrl: "https://vidmindai.vercel.app/",
