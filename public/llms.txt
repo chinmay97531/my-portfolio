@@ -20,4 +20,4 @@
 
 ## Focus
 
-Builds web and app experiences with React, Next.js, TypeScript, Node.js, and related full-stack technologies. Projects include RAG Bot, TaskFlow, Brainly App, LMS, and Food Spoilage Detection.
+Builds web and app experiences with React, Next.js, TypeScript, Node.js, and related full-stack technologies. Projects include VidMind, TaskFlow, Brainly App, LMS, and Food Spoilage Detection.

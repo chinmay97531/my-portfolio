@@ -98,10 +98,10 @@ export const skills: Skill[] = [
 
 export const projects: Project[] = [
   {
-    title: "RAG Bot",
+    title: "VidMind",
     description:
       "A retrieval-augmented generation chatbot that answers questions from your own knowledge base.",
-    image: "/projects/ragbot.webp",
+    image: "/projects/vidmind.webp",
     href: "https://vidmindai.vercel.app/",
     liveUrl: "https://vidmindai.vercel.app/",
     tags: ["AI", "RAG", "Full-Stack"],
