@@ -113,16 +113,16 @@ export const projects: Project[] = [
     image: "/projects/taskflow.webp",
     href: "https://frontend-task-management-app-seven.vercel.app/",
     liveUrl: "https://frontend-task-management-app-seven.vercel.app/",
-    tags: ["React", "Productivity"],
+    tags: ["React", "Express", "MongoDB", "JavaScript"],
   },
   {
-    title: "Brainly App",
+    title: "BrainBox",
     description:
       "A second-brain app to capture, organize, and revisit your links, notes, and ideas.",
-    image: "/projects/brainly.webp",
-    href: "https://brainly-frontend-gamma.vercel.app/",
-    liveUrl: "https://brainly-frontend-gamma.vercel.app/",
-    tags: ["React", "TypeScript"],
+    image: "/projects/brainbox.webp",
+    href: "https://brainboxapp.vercel.app/",
+    liveUrl: "https://brainboxapp.vercel.app/",
+    tags: ["React", "TypeScript", "Express", "MongoDB", "Tailwind CSS"],
   },
   {
     title: "Learning Management System",
@@ -130,7 +130,7 @@ export const projects: Project[] = [
       "A collaborative learning platform enabling students to study and work together.",
     image: "/projects/lms.webp",
     href: "https://github.com/chinmay97531/project-frontend-software-engineering",
-    tags: ["React", "Full-Stack"],
+    tags: ["Full-Stack"],
   },
   {
     title: "Food Spoilage Detection",
@@ -138,7 +138,7 @@ export const projects: Project[] = [
       "An app that detects food spoilage using image classification to reduce waste.",
     image: "/projects/food-spoilage.webp",
     href: "https://github.com/chinmay97531/Food-Spoilage-Frontend",
-    tags: ["ML", "Reac-Native"],
+    tags: ["ML", "React Native", "IoT"],
   },
   {
     title: "Course Selling App",
@@ -146,7 +146,7 @@ export const projects: Project[] = [
       "A robust backend for a course-selling platform with auth, courses, and purchases.",
     image: "/projects/course-selling.webp",
     href: "https://github.com/chinmay97531/Backend-for-Course-Selling-App",
-    tags: ["Node.js", "Express", "MongoDB"],
+    tags: ["Express", "MongoDB"],
   },
   {
     title: "Cartoonizing App",
@@ -172,7 +172,7 @@ export const projects: Project[] = [
     image: "/projects/code-catch.webp",
     href: "https://code-catch-game.vercel.app/",
     liveUrl: "https://code-catch-game.vercel.app/",
-    tags: ["Game", "JavaScript"],
+    tags: ["Phaser3", "JavaScript"],
   },
 ];
 
