@@ -50,7 +50,7 @@ export const experiences: Experience[] = [
     period: "Feb 2026 – Aug 2026",
     location: "Mohali, Punjab",
     summary:
-      "I'm part of the Product Business Operations team at Zscaler, building an enterprise-grade Quarterly Business Review (QBR) platform from the ground up to streamline the creation and management of executive business review presentations, using Next.js, FastAPI, PostgreSQL, Valkey, and AWS.",
+      "Built an enterprise-grade Quarterly Business Review (QBR) platform with the Product Business Operations team at Zscaler, streamlining creation and management of executive business review presentations using Next.js, FastAPI, PostgreSQL, Valkey, and AWS.",
     stack: ["Next.js", "FastAPI", "PostgreSQL", "Snowflake", "GitLab", "Valkey"],
     points: [
       "Architected and developed an enterprise-grade QBR platform",

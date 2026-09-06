@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase } from "lucide-react";
+import { Briefcase, GraduationCap } from "lucide-react";
 import { personName, thaparName, zscalerName } from "@/lib/data";
 import { SectionHeading } from "./Skills";
 
@@ -86,14 +86,14 @@ export default function About() {
               <div className="flex items-center gap-3 text-accent">
                 <Briefcase size={18} />
                 <span className="text-xs font-semibold uppercase tracking-[0.18em]">
-                  Currently
+                  Internship
                 </span>
               </div>
               <p className="mt-3 font-display text-lg font-semibold leading-snug text-fg">
                 {zscalerName}
               </p>
               <p className="mt-1 text-sm text-fg/45">
-                Software Engineering Intern · Mohali
+                Software Engineering Intern · Feb–Aug 2026
               </p>
             </div>
           </motion.aside>

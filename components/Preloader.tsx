@@ -30,7 +30,7 @@ const journey: Milestone[] = [
   },
   {
     img: "/journey/zscaler-intern.webp",
-    tag: "Latest chapter",
+    tag: "Industry experience",
     title: "Zscaler",
     subtitle: "Software Engineering Intern",
     pan: "right",

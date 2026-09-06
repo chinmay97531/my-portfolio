@@ -13,8 +13,8 @@ import {
 export const siteTitle = `${personName} | ${role} | Thapar`;
 
 export const siteDescription =
-  `${personName} is a software engineer and full-stack developer from ${thaparName}, ` +
-  `currently a Software Engineering Intern at ${zscalerName}. Building fast web and app experiences with React, Next.js, and TypeScript.`;
+  `${personName} is a software engineer and full-stack developer from ${thaparName}. ` +
+  `Building fast web and app experiences with React, Next.js, and TypeScript. Former Software Engineering Intern at ${zscalerName}.`;
 
 export const siteKeywords = [
   personName,
@@ -45,11 +45,6 @@ export function getPersonJsonLd() {
       "@type": "CollegeOrUniversity",
       name: thaparName,
       sameAs: "https://www.thapar.edu/",
-    },
-    worksFor: {
-      "@type": "Organization",
-      name: zscalerName,
-      sameAs: "https://www.zscaler.com/",
     },
     sameAs: [siteUrl, githubUrl, linkedinUrl, leetcodeUrl],
   };
