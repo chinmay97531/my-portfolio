@@ -47,7 +47,7 @@ export const experiences: Experience[] = [
     logo: "/logo/zscaler.webp",
     logoWidth: 124,
     logoHeight: 32,
-    period: "Feb 2026 – Present",
+    period: "Feb 2026 – Aug 2026",
     location: "Mohali, Punjab",
     summary:
       "I'm part of the Product Business Operations team at Zscaler, building an enterprise-grade Quarterly Business Review (QBR) platform from the ground up to streamline the creation and management of executive business review presentations, using Next.js, FastAPI, PostgreSQL, Valkey, and AWS.",
@@ -64,7 +64,7 @@ export const experiences: Experience[] = [
     logo: "/logo/thapar.webp",
     logoWidth: 111,
     logoHeight: 56,
-    period: "Jun 2024 – Jul 2024",
+    period: "Jun 2025 – Jul 2025",
     location: "Patiala, Punjab",
     summary:
       "Led the development of a Smart AI-powered IoT Food Spoilage Detection system integrating ML, IoT, and full-stack technologies.",
